@@ -13,13 +13,8 @@ const Form = () => {
           value={input}
           onChange={(e) => setInput(e.target.value)}
         />
-        <input
-          type="submit"
-          value="Find me a parking spot"
-          onClick={setKeyword}
-        />
+        <input type="submit" value="Find a spot" onClick={setKeyword} />
       </form>
-      <Offers keyword={keyword} />
     </div>
   );
 };

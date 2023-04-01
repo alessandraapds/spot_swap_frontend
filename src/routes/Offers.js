@@ -1,6 +1,6 @@
 import React from "react";
 
-const offers = () => {
+const Offers = () => {
   const offersArray = [
     {
       _id: "642683024454d8e663574237",
@@ -55,4 +55,4 @@ const offers = () => {
   });
 };
 
-export default offers;
+export default Offers;
