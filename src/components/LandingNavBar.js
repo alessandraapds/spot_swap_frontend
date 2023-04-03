@@ -21,11 +21,11 @@ const LandingNavbar = () => {
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" href="#">
+              <a class="nav-link" aria-current="page" href="/login">
                 Login
               </a>
-              <a class="nav-link" href="#">
-                Register
+              <a class="nav-link" href="/signup">
+                Sign Up
               </a>
             </div>
           </div>
