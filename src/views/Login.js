@@ -1,20 +1,22 @@
 import React, { useState } from 'react'
-import Navbar from "../components/NavBar";
-
-
-
-
-
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal';
+import Signup from './Signup';
 
 const Login = () => {
     
     const [input, setInput] = useState(null);
+    const [open, setOpen] = useState(false);
+
+    const onOpenModal = () => setOpen(true);
+    const onCloseModal = () => setOpen(false);
 
   return (
 <div className='login'>
-    <div>Login</div>
-  
-    <form>
+    <div>
+      <a class="nav-link active" onClick={onOpenModal}>Login</a>
+      <Modal open={open} onClose={onCloseModal} center>
+      <form>
          <label>
             Username: 
             <input type="text" name="username" value={input}  onChange={(e) => setInput(e.target.value)}></input>      
@@ -31,9 +33,13 @@ const Login = () => {
     </form>
     <br></br>
     <p>Not already registered?</p>
-        <a class="nav-link" aria-current="page" href="/signup">
-                Sign Up
-        </a>
+      <Signup />
+      </Modal>
+    </div>
+
+
+
+    
 </div>
   )
 }

@@ -7,10 +7,13 @@ import Offers from "./routes/Offers";
 import Register from "./routes/OfferRegistration";
 import Login from "./views/Login";
 import Signup from "./views/Signup";
+import LandingNavbar from "./components/LandingNavBar";
 
 function App() {
+   const token = false;
   return (
     <>
+    { !token ? (<LandingNavbar />) : (<Navbar />)}
       <Routes>
         <Route path="/" element={<Landingpage />} />
         <Route path="/home" element={<Home />} />

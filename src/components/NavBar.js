@@ -40,6 +40,7 @@ const Navbar = () => {
       </nav>
 
       <Outlet />
+      
     </div>
   );
 };

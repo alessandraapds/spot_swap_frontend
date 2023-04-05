@@ -5,7 +5,6 @@ import Form from "../components/Form";
 const Landingpage = () => {
   return (
     <div>
-      <LandingNavbar />
       <Form />
     </div>
   );
