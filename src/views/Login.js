@@ -16,6 +16,8 @@ const Login = () => {
     const [success, setSuccess] = useState(false);
     const api_url = process.env.REACT_APP_BACKEND_URL;
 
+
+
     const handleSubmit = async (e) => {
       e.preventDefault();
       const payload = { username, password };
@@ -28,9 +30,10 @@ const Login = () => {
             body: JSON.stringify(payload)
          });
          if(response.ok) {
-          const { token, id } = await response.json();
+          const { token, id, name } = await response.json();
           sessionStorage.setItem("jwt", token);
-          sessionStorage.setItem("userId", id)
+          sessionStorage.setItem("userId", id);
+          sessionStorage.setItem("name", name);
           setSuccess(true)
             setTimeout(() => {
                navigate('/home')
@@ -81,6 +84,7 @@ const Login = () => {
         
     </form>
     <br></br>
+    
       </Modal>
     </div>
 

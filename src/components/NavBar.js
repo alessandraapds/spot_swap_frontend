@@ -1,12 +1,13 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 
+
 const Navbar = () => {
   return (
     <div>
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="/home">
             SpotSwap
           </a>
           <button
@@ -15,7 +16,7 @@ const Navbar = () => {
             data-bs-toggle="collapse"
             data-bs-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup"
-            aria-expanded="false"
+            aria-expanded="true"
             aria-label="Toggle navigation"
           >
             <span class="navbar-toggler-icon"></span>

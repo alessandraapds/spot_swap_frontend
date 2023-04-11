@@ -24,7 +24,7 @@
     padding: 0;
     
     text-align: center;
-
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -61,8 +61,7 @@ text-align: center;
 h2{
   text-align: center;
 }
-
-.customModal {
-  
-
+h1 {
+  background-color: #61dafb;
+  text-align: center;
 }

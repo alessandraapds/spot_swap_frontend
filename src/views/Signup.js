@@ -20,7 +20,6 @@ const Signup = () => {
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(false);
     const api_url = process.env.REACT_APP_BACKEND_URL;
-    
 
    const handleSubmit = async (e) => {
       e.preventDefault();
@@ -99,9 +98,8 @@ const Signup = () => {
          
     </form> 
     <br></br>
-    <p>Already registered?</p>
-    <Login />
-      </Modal>
+    </Modal>
+
     </div>
   
     
