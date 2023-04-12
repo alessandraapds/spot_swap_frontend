@@ -5,6 +5,8 @@ import Landingpage from "./views/Landing";
 import Home from "./views/Home";
 import Offers from "./routes/Offers";
 import Register from "./routes/OfferRegistration";
+import Post from "./components/Post";
+import Bookings from "./routes/Bookings";
 import Login from "./views/Login";
 import Signup from "./views/Signup";
 import LandingNavbar from "./components/LandingNavBar";
@@ -24,6 +26,8 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="registeryouroffer" element={<Register />} />
           <Route path="offers" element={<Offers />} />
+          <Route path="/:id" element={<Post />} />
+          <Route path="bookings" element={<Bookings />} /> 
           <Route path="dashboard" element={<Dashboard />} />
         </Route>
       </Routes>
