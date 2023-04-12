@@ -1,4 +1,6 @@
 import React from "react";
+import Login from "../views/Login";
+import Signup from "../views/Signup";
 
 const LandingNavbar = () => {
  return (
@@ -19,8 +21,8 @@ const LandingNavbar = () => {
               wait? Sign up today and start parking with SpotSwap!
             </p>
             <div className="d-flex justify-content-center align-items-center mt-5">
-              <button className="btn btn-primary btn-lg me-5">Sign Up</button>
-              <button className="btn btn-secondary btn-lg">Log In</button>
+              <button className="btn btn-primary btn-lg me-5"><Signup /></button>
+              <button className="btn btn-secondary btn-lg"><Login /></button>
             </div>
             <br />
             <br />
