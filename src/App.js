@@ -5,7 +5,8 @@ import Landingpage from "./views/Landing";
 import Home from "./views/Home";
 import Offers from "./routes/Offers";
 import Register from "./routes/OfferRegistration";
-
+import Post from "./components/Post";
+import Bookings from "./routes/Bookings";
 function App() {
   return (
     <>
@@ -15,6 +16,8 @@ function App() {
         <Route element={<Navbar />}>
           <Route path="registeryouroffer" element={<Register />} />
           <Route path="offers" element={<Offers />} />
+          <Route path="/:id" element={<Post />} />
+          <Route path="bookings" element={<Bookings />} /> 
         </Route>
       </Routes>
     </>

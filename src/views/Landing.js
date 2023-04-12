@@ -6,7 +6,7 @@ const Landingpage = () => {
   return (
     <div>
       <LandingNavbar />
-      {/* <Form /> */}
+      <Form />
     </div>
   );
 };
