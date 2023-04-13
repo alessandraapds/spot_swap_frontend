@@ -1,44 +1,29 @@
-import React, { useState, useEffect } from 'react';
 
-function MyBooking() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
-  useEffect(() => {
-    fetch('http://localhost:8001/api/v1')
-      .then(response => response.json())
-      .then(data => {
-        setData(data);
-        setLoading(false);
-      })
-      .catch(error => {
-        setError(error);
-        setLoading(false);
-      });
-  }, []);
+import React from 'react'
+import { useNavigate } from "react-router-dom";
 
-  if (loading) {
-    return <div>Loading...</div>;
+export const MyBookings = () => {
+  const userId = sessionStorage.getItem("userId")
+  // const token = sessionStorage.getItem("jwt");
+const navigate = useNavigate();
+const handleBookSpot = () => {
+    navigate('/Payment');
   }
-
-  if (error) {
-    return <div>Error: {error.message}</div>;
-  }
-
   return (
-    <div>
-      <h1>Bookings Data</h1>
-      {data && (
-        <ul>
-          {data.map(item => (
-            <li key={item.id}>{item.name}</li>
-          ))}
-        </ul>
-      )}
+    <div> 
+      <h1>Welcome user:{userId} to your booking information</h1>
+      <br></br>
+      <h2>Your bookings details </h2>
+      <button onClick={handleBookSpot}> Book this spot</button>
     </div>
-  );
+  )
 }
 
-export default MyBooking;
+export default MyBookings;
+
+
+
+
+
 
