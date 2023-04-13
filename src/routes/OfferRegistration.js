@@ -108,7 +108,7 @@ const OfferRegistration = () => {
           />
         </div>
 
-        {/* Picture */}
+        {/* Picture
         <div class="form-group">
           <label for="exampleFormControlFile1">Choose a picture: </label>
           <input
@@ -116,7 +116,7 @@ const OfferRegistration = () => {
             class="form-control-file"
             id="exampleFormControlFile1"
           />
-        </div>
+        </div> */}
 
         <button type="submit" class="btn btn-primary">
           List my offer
