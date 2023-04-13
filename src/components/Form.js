@@ -5,6 +5,12 @@ const Form = () => {
   const [input, setInput] = useState(null);
   const [keyword, setKeyword] = useState(null);
 
+  const saveInput = (e) => {
+    e.preventDefault();
+    setKeyword(input);
+    setInput("");
+  };
+
   return (
     <div class="container">
       <form>
@@ -13,8 +19,9 @@ const Form = () => {
           value={input}
           onChange={(e) => setInput(e.target.value)}
         />
-        <input type="submit" value="Find a spot" onClick={setKeyword} />
+        <input type="submit" value="Find a spot" onClick={saveInput} />
       </form>
+      <Offers keyword={keyword} />
     </div>
   );
 };

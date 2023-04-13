@@ -4,23 +4,20 @@ import "../styles/styles.css";
 import { GeoAltFill, CalendarDay, CurrencyEuro } from "react-bootstrap-icons";
 import Maps from "../components/Maps";
 
-const Offers = () => {
+const Offers = ({ keyword }) => {
   const url = "http://localhost:8001/offers";
   const { data, isLoading, error } = useFetch(url);
-
-  console.log(data, "testing api");
 
   return (
     <div>
       <h2>Check all our available spots</h2>
       {isLoading ? (
         <p>Loading...</p>
-      ) : (
+      ) : !keyword ? (
         data.map((offer) => {
           return (
             <div class="container offer-list">
               <div class="row">
-                <div class="col-2"> Picture</div>
                 <div class="col-5">
                   <div>
                     <strong>{offer.offerName}</strong>
@@ -47,14 +44,52 @@ const Offers = () => {
                   <button>Book spot</button>
                 </div>
                 <div class="col-2">
-                  <div>map</div>
+                  <Maps street={offer.street} city={offer.city} />
                 </div>
               </div>
             </div>
           );
         })
+      ) : (
+        data.map((offer) => {
+          if (offer.offerName.toLowerCase().includes(keyword.toLowerCase())) {
+            return (
+              <div class="container offer-list">
+                <div class="row">
+                  <div class="col-5">
+                    <div>
+                      <strong>{offer.offerName}</strong>
+                    </div>
+                    <div>
+                      <GeoAltFill /> {offer.street} - {offer.city}
+                    </div>
+                    <div>
+                      {" "}
+                      <CalendarDay />
+                      Available from: {offer.startAvailableDate}
+                    </div>
+                    <div>
+                      {" "}
+                      <CalendarDay />
+                      Available until: {offer.endAvailableDate}
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div>
+                      Price: <CurrencyEuro />
+                      {offer.pricePerHour}
+                    </div>
+                    <button>Book spot</button>
+                  </div>
+                  <div class="col-2">
+                    <Maps street={offer.street} city={offer.city} />
+                  </div>
+                </div>
+              </div>
+            );
+          }
+        })
       )}
-      <Maps />
     </div>
   );
 };
