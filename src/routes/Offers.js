@@ -23,23 +23,24 @@ const Offers = ({ keyword }) => {
                     <strong>{offer.offerName}</strong>
                   </div>
                   <div>
-                    <GeoAltFill /> {offer.street} - {offer.city}
+                    <GeoAltFill /> {offer.street} - {offer.city},{" "}
+                    {offer.country}
                   </div>
                   <div>
                     {" "}
                     <CalendarDay />
-                    Available from: {offer.startAvailableDate}
+                    Available from: {offer.availableFrom}
                   </div>
                   <div>
                     {" "}
                     <CalendarDay />
-                    Available until: {offer.endAvailableDate}
+                    Available until: {offer.availableUntil}
                   </div>
                 </div>
                 <div class="col-3">
                   <div>
                     Price: <CurrencyEuro />
-                    {offer.pricePerHour}
+                    {offer.price}
                   </div>
                   <button>Book spot</button>
                 </div>
@@ -61,23 +62,24 @@ const Offers = ({ keyword }) => {
                       <strong>{offer.offerName}</strong>
                     </div>
                     <div>
-                      <GeoAltFill /> {offer.street} - {offer.city}
+                      <GeoAltFill /> {offer.street} - {offer.city},{" "}
+                      {offer.countru}
                     </div>
                     <div>
                       {" "}
                       <CalendarDay />
-                      Available from: {offer.startAvailableDate}
+                      Available from: {offer.availableFrom}
                     </div>
                     <div>
                       {" "}
                       <CalendarDay />
-                      Available until: {offer.endAvailableDate}
+                      Available until: {offer.availableUntil}
                     </div>
                   </div>
                   <div class="col-3">
                     <div>
                       Price: <CurrencyEuro />
-                      {offer.pricePerHour}
+                      {offer.price}
                     </div>
                     <button>Book spot</button>
                   </div>

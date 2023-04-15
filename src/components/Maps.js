@@ -36,7 +36,7 @@ const Maps = ({ street, city }) => {
   return (
     <div>
       {mapIsLoading ? (
-        <p>Map info is loading...</p>
+        <p>Loading location...</p>
       ) : (
         <div>
           <MapContainer
