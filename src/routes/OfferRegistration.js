@@ -10,12 +10,16 @@ const OfferRegistration = () => {
   const [price, setPrice] = useState(null);
   const [availableFrom, setAvailableFrom] = useState(null);
   const [availableUntil, setAvailableUntil] = useState(null);
+  const [isAvailable, setIsAvailable] = useState(true);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
   const url = "http://localhost:8001/offers";
   const userId = sessionStorage.getItem("userId");
   const navigate = useNavigate();
+  const createdAt = new Date();
+
+  console.log(createdAt, "testing date");
 
   const postOffer = async (e) => {
     e.preventDefault();
@@ -30,6 +34,8 @@ const OfferRegistration = () => {
       price,
       availableFrom,
       availableUntil,
+      isAvailable,
+      createdAt,
     };
 
     setOfferName("");
