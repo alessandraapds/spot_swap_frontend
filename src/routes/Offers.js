@@ -26,7 +26,7 @@ const Offers = ({ keyword }) => {
         data.map((offer) => {
           return (
             <div class="container offer-list">
-              <div class="row">
+              <div class="row border align-self-center">
                 <div class="col-5">
                   <div>
                     <strong>{offer.offerName}</strong>
@@ -51,11 +51,15 @@ const Offers = ({ keyword }) => {
                     Price: <CurrencyEuro />
                     {offer.price}
                   </div>
-                  <button onClick={() => handleBookSpot(offer._id)}>
+                  <button
+                    type="button"
+                    class="btn btn-success"
+                    onClick={() => handleBookSpot(offer._id)}
+                  >
                     Book spot
                   </button>
                 </div>
-                <div class="col-2">
+                <div class="col-4">
                   <Maps street={offer.street} city={offer.city} />
                 </div>
               </div>
@@ -95,7 +99,9 @@ const Offers = ({ keyword }) => {
                       Price: <CurrencyEuro />
                       {offer.price}
                     </div>
-                    <button>Book spot</button>
+                    <button type="button" class="btn btn-success">
+                      Book spot
+                    </button>
                   </div>
                   <div class="col-2">
                     <Maps street={offer.street} city={offer.city} />

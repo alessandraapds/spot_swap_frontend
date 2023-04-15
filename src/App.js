@@ -12,6 +12,7 @@ import Signup from "./views/Signup";
 import LandingNavbar from "./components/LandingNavBar";
 import MenuModal from "./components/MenuModal";
 import Dashboard from "./views/Dashboard";
+import OfferConfirmation from "./routes/OfferConfirmation";
 
 function App() {
   const token = sessionStorage.getItem("jwt");
@@ -24,6 +25,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/registeryouroffer" element={<Register />} />
+          <Route path="/offerconfirmation" element={<OfferConfirmation />} />
           <Route path="/offers" element={<Offers />} />
           <Route path="/payment/:id" element={<Payment />} />
           <Route path="/bookings/:id" element={<Bookings />} />
