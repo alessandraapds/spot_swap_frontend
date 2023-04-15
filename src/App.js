@@ -12,6 +12,8 @@ import Signup from "./views/Signup";
 import LandingNavbar from "./components/LandingNavBar";
 import MenuModal from "./components/MenuModal";
 import Dashboard from "./views/Dashboard";
+import SeeMyBookings from "./routes/SeeMyBookings";
+import PageNotFound from "./components/PageNotFound";
 
 function App() {
   const token = sessionStorage.getItem("jwt");
@@ -28,6 +30,8 @@ function App() {
           <Route path="/payment/:id" element={<Payment />} />
           <Route path="/bookings/:id" element={<Bookings />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/SeeMyBookings" element={<SeeMyBookings />} />
+          <Route path="*" element={<PageNotFound/>} />
         </Route>
       </Routes>
     </>
