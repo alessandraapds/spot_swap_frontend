@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const OfferRegistration = () => {
   const [offerName, setOfferName] = useState(null);
@@ -14,6 +15,7 @@ const OfferRegistration = () => {
   const [success, setSuccess] = useState(false);
   const url = "http://localhost:8001/offers";
   const userId = sessionStorage.getItem("userId");
+  const navigate = useNavigate();
 
   const postOffer = async (e) => {
     e.preventDefault();
@@ -39,6 +41,8 @@ const OfferRegistration = () => {
     setAvailableFrom("");
     setAvailableUntil("");
     setLoading(true);
+
+    navigate("/offerconfirmation");
 
     try {
       const response = await fetch(url, {
