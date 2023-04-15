@@ -1,26 +1,39 @@
 import React, { useState } from "react";
 
+const Payment = () => {
+  const [isBooked, setIsBooked] = useState(false);
+  const userId = sessionStorage.getItem("userId");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsBooked(true);
+  };
+
+  return (
+    <div className="payment-container">
+      <h1>Hello user: {userId}</h1>
+      <h2>Payment Information</h2>
+      <CreditCardForm onSubmit={handleSubmit} />
+      {isBooked && (
+        <div className="booking-message">Your spot has been booked!</div>
+      )}
+    </div>
+  );
+};
+
 const CreditCardForm = ({ onSubmit }) => {
   const [cardNumber, setCardNumber] = useState("");
   const [cardHolderName, setCardHolderName] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
   const [cvv, setCvv] = useState("");
-  const [isBooked, setIsBooked] = useState(false);
- 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsBooked(true);
-    onSubmit();
+    onSubmit(e);
   };
-  
 
   return (
     <div className="credit-card-form">
-      <h3>Enter your credit card information</h3>
-      {isBooked && (
-        <div className="booking-message">Your spot has been booked!</div>
-      )}
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="card-number">Card number:</label>
@@ -72,4 +85,4 @@ const CreditCardForm = ({ onSubmit }) => {
   );
 };
 
-export default CreditCardForm;
+export default Payment;

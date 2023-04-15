@@ -10,11 +10,12 @@ const Offers = () => {
   const { data, isLoading, error } = useFetch(url);
   const navigate = useNavigate();
 
-  console.log(data, "testing api");
+  // console.log(data, "testing api");
 
   const handleBookSpot = (id) => {
     // console.log("Hello", id);
     navigate("/bookings/" + id);
+    // navigate("/Payment/" + id);
   };
   return (
     <div>
