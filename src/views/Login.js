@@ -15,6 +15,7 @@ const Login = () => {
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(false);
     const api_url = process.env.REACT_APP_BACKEND_URL;
+    const [show, setShow] = useState(false)
 
 
 
@@ -63,9 +64,9 @@ const Login = () => {
       <div className='login'>
     <div>
       <a class="nav-link active" onClick={onOpenModal}>Login</a>
-      <Modal open={open} onClose={onCloseModal} center classNames={{
+       <Modal open={open} onClose={onCloseModal} center classNames={{
           modal: 'customModal'
-        }}>
+        }}> 
       <h2>Login</h2>
          <br></br>
       <form className='userform' onSubmit={handleSubmit}>
@@ -84,7 +85,11 @@ const Login = () => {
         
     </form>
     <br></br>
-    
+    <p>Not Registered Sign Up Now</p>
+
+      {show === true ? 
+        <Signup /> : '' }
+      
       </Modal>
     </div>
 
