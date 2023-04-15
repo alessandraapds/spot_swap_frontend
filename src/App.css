@@ -66,3 +66,15 @@ h1 {
   color: whitesmoke;
   padding: 3rem;
 }
+
+.listedSpots{
+  border-radius: 10px;
+  margin: 1.5rem;
+  background-color: #b8733342;
+  
+}
+.bookedSpots{
+  border-radius: 10px;
+  margin: 1.5rem;
+  background-color:#ffd900ab;
+}

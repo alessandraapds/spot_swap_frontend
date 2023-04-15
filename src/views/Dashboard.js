@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from "../components/NavBar";
 import useFetch from "../hooks/useFetch";
 import { Col, Container, Row } from 'react-bootstrap';
-import MenuModal from '../components/MenuModal';
 
 const Dashboard = () => {
 const name = sessionStorage.getItem("name");
@@ -11,7 +10,18 @@ const { data, isLoading, error } = useFetch(api_url + 'offers');
 const { data: booking, isLoading: isLoadingBooking, error: errorBooking } = useFetch(api_url + 'booking')
 const userId = sessionStorage.getItem("userId")
 const bookings = booking.filter((booking) => booking.user_id === userId);
-
+const offers = data.filter((offer) => offer.user_id === userId );
+const bookedSpots = []
+for (let i =0; i< data.length; i++) { 
+if (data[i].isAvailable === false) {
+  bookedSpots.push(data[i])
+  console.log(bookedSpots)
+}}
+let totalIncome = 0;
+for (let i = 0; i < bookedSpots.length; i++){
+  totalIncome += bookedSpots[i].price;
+}
+console.log(totalIncome, 'income')
   return (
     <Container fluid>
         <Row>
@@ -26,14 +36,21 @@ const bookings = booking.filter((booking) => booking.user_id === userId);
           return (
             <Container>
                 <Row>
-                  <Col>
-                  <li>{offer.offerName} - {offer.street} - {offer.city}</li>
+                  <Col className="listedSpots">
+                  <div>{offer.offerName} - {offer.street} - {offer.city}
+
+                  <p>List Price: €{offer.price}</p>
+                  {offer.isAvailable === true ? <p style={{fontWeight: 'bold', color:"red"}}>Available</p>: <p style={{fontWeight: 'bold', color:"green"}}>Booked</p>}
+                  </div>
                   </Col>
+                  
                 </Row>
+                
             </Container>
           );
         })
       )}
+      <p> Total Earnings: €{totalIncome}</p>
             </Col>
 
             <Col><h2>My Bookings</h2>
@@ -47,7 +64,7 @@ const bookings = booking.filter((booking) => booking.user_id === userId);
           return (
             <Container>
                 <Row>
-                  <Col>
+                  <Col className='bookedSpots'>
                    <div>
                     <h6>Booking ID:{booking._id} </h6>
                   

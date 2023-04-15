@@ -42,6 +42,7 @@ const Login = () => {
             } else {
                const errorData = await response.json();
                throw new Error(errorData.message)
+               console.log(error)
          }
 
       } catch(e){

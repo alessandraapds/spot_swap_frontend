@@ -21,6 +21,7 @@ const Form = () => {
         />
         <input type="submit" value="Find a spot" onClick={saveInput} />
       </form>
+      
       <Offers keyword={keyword} />
     </div>
   );
