@@ -73,6 +73,3 @@ const CreditCardForm = ({ onSubmit }) => {
 };
 
 export default CreditCardForm;
-
-
-

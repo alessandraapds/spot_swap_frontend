@@ -14,21 +14,20 @@ import MenuModal from "./components/MenuModal";
 import Dashboard from "./views/Dashboard";
 
 function App() {
-   const token = sessionStorage.getItem("jwt");
+  const token = sessionStorage.getItem("jwt");
   return (
     <>
-   
       <Routes>
         <Route path="/" element={<Landingpage />} />
         <Route path="/home" element={<Home />} />
         <Route element={<Navbar />}>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="registeryouroffer" element={<Register />} />
-          <Route path="offers" element={<Offers />} />
+          <Route path="/registeryouroffer" element={<Register />} />
+          <Route path="/offers" element={<Offers />} />
           <Route path="/Payment" element={<Payment />} />
-          <Route path="/bookings" element={<Bookings />} /> 
-          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="/bookings/:id" element={<Bookings />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Route>
       </Routes>
     </>

@@ -12,9 +12,10 @@ const Offers = () => {
 
   console.log(data, "testing api");
 
-const handleBookSpot = () => {
-    navigate('/bookings');
-  }
+  const handleBookSpot = (id) => {
+    // console.log("Hello", id);
+    navigate("/bookings/" + id);
+  };
   return (
     <div>
       <h2>Check all our available spots</h2>
@@ -49,8 +50,10 @@ const handleBookSpot = () => {
                     Price: <CurrencyEuro />
                     {offer.pricePerHour}
                   </div>
-                  <button onClick={handleBookSpot} >Book spot</button>
-                  </div>
+                  <button onClick={() => handleBookSpot(offer._id)}>
+                    Book spot
+                  </button>
+                </div>
                 <div class="col-2">
                   <div>map</div>
                 </div>
