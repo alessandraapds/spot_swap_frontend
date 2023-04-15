@@ -64,7 +64,10 @@ const Offers = ({ keyword }) => {
         })
       ) : (
         data.map((offer) => {
-          if (offer.offerName.toLowerCase().includes(keyword.toLowerCase())) {
+          if (
+            offer.offerName.toLowerCase().includes(keyword.toLowerCase()) ||
+            offer.city === keyword
+          ) {
             return (
               <div class="container offer-list">
                 <div class="row">
@@ -74,7 +77,7 @@ const Offers = ({ keyword }) => {
                     </div>
                     <div>
                       <GeoAltFill /> {offer.street} - {offer.city},{" "}
-                      {offer.countru}
+                      {offer.country}
                     </div>
                     <div>
                       {" "}
