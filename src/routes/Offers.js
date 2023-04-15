@@ -5,7 +5,7 @@ import { GeoAltFill, CalendarDay, CurrencyEuro } from "react-bootstrap-icons";
 import Maps from "../components/Maps";
 import { useNavigate } from "react-router-dom";
 
-const Offers = () => {
+const Offers = ({ keyword }) => {
   const url = "http://localhost:8001/offers";
   const { data, isLoading, error } = useFetch(url);
   const navigate = useNavigate();
@@ -22,48 +22,87 @@ const Offers = () => {
       <h2>Check all our available spots</h2>
       {isLoading ? (
         <p>Loading...</p>
-      ) : (
+      ) : !keyword ? (
         data.map((offer) => {
           return (
             <div class="container offer-list">
               <div class="row">
-                <div class="col-2"> Picture</div>
                 <div class="col-5">
                   <div>
                     <strong>{offer.offerName}</strong>
                   </div>
                   <div>
-                    <GeoAltFill /> {offer.street} - {offer.city}
+                    <GeoAltFill /> {offer.street} - {offer.city},{" "}
+                    {offer.country}
                   </div>
                   <div>
                     {" "}
                     <CalendarDay />
-                    Available from: {offer.startAvailableDate}
+                    Available from: {offer.availableFrom}
                   </div>
                   <div>
                     {" "}
                     <CalendarDay />
-                    Available until: {offer.endAvailableDate}
+                    Available until: {offer.availableUntil}
                   </div>
                 </div>
                 <div class="col-3">
                   <div>
                     Price: <CurrencyEuro />
-                    {offer.pricePerHour}
+                    {offer.price}
                   </div>
                   <button onClick={() => handleBookSpot(offer._id)}>
                     Book spot
                   </button>
                 </div>
                 <div class="col-2">
-                  <div>map</div>
+                  <Maps street={offer.street} city={offer.city} />
                 </div>
               </div>
             </div>
           );
         })
+      ) : (
+        data.map((offer) => {
+          if (offer.offerName.toLowerCase().includes(keyword.toLowerCase())) {
+            return (
+              <div class="container offer-list">
+                <div class="row">
+                  <div class="col-5">
+                    <div>
+                      <strong>{offer.offerName}</strong>
+                    </div>
+                    <div>
+                      <GeoAltFill /> {offer.street} - {offer.city},{" "}
+                      {offer.countru}
+                    </div>
+                    <div>
+                      {" "}
+                      <CalendarDay />
+                      Available from: {offer.availableFrom}
+                    </div>
+                    <div>
+                      {" "}
+                      <CalendarDay />
+                      Available until: {offer.availableUntil}
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div>
+                      Price: <CurrencyEuro />
+                      {offer.price}
+                    </div>
+                    <button>Book spot</button>
+                  </div>
+                  <div class="col-2">
+                    <Maps street={offer.street} city={offer.city} />
+                  </div>
+                </div>
+              </div>
+            );
+          }
+        })
       )}
-      <Maps />
     </div>
   );
 };
