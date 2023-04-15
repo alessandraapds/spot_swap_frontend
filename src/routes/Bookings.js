@@ -54,7 +54,10 @@ const NewBooking = () => {
     <p className="booking-detail">until : {data.availableUntil}</p>
     <p className="booking-detail">Total Price €:{data.price}</p>
     <p className="booking-detail"> * Free cancellation up to 24 hours prior to arrival  </p>
-    <button className="book-button" onClick={() => handleBookSpot(Payment._id)}>Book this spot</button>
+    <button className="book-button" onClick={() => handleBookSpot(Payment._id)}
+    
+    >Book this spot</button>
+    
   </div>
 );
 };
