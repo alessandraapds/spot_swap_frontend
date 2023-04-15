@@ -3,11 +3,20 @@ import useFetch from "../hooks/useFetch";
 import "../styles/styles.css";
 import { GeoAltFill, CalendarDay, CurrencyEuro } from "react-bootstrap-icons";
 import Maps from "../components/Maps";
+import { useNavigate } from "react-router-dom";
 
 const Offers = ({ keyword }) => {
   const url = "http://localhost:8001/offers";
   const { data, isLoading, error } = useFetch(url);
+  const navigate = useNavigate();
 
+  // console.log(data, "testing api");
+
+  const handleBookSpot = (id) => {
+    // console.log("Hello", id);
+    navigate("/bookings/" + id);
+    // navigate("/Payment/" + id);
+  };
   return (
     <div>
       <h2>Check all our available spots</h2>
@@ -42,7 +51,9 @@ const Offers = ({ keyword }) => {
                     Price: <CurrencyEuro />
                     {offer.price}
                   </div>
-                  <button>Book spot</button>
+                  <button onClick={() => handleBookSpot(offer._id)}>
+                    Book spot
+                  </button>
                 </div>
                 <div class="col-2">
                   <Maps street={offer.street} city={offer.city} />
