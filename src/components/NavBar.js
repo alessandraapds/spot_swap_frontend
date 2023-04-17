@@ -33,7 +33,7 @@ const Navbar = () => {
                 See all parkings spots
               </a>
               <a class="nav-link" href="/dashboard">
-                See my bookings
+                My Dashboard
               </a>
             </div>
           </div>

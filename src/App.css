@@ -61,6 +61,72 @@ h2{
 h1 {
   text-align: center;
 }
+.credit-card-form {
+  max-width: 400px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+.credit-card-form h3 {
+  margin-top: 0;
+}
+
+.credit-card-form .form-group {
+  margin-bottom: 10px;
+}
+
+.credit-card-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.credit-card-form input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.credit-card-form button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.booking-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 50px;
+}
+
+.booking-detail {
+  margin: 12px;
+  text-align: center;
+}
+
+.book-button {
+  background-color: orange;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+}
+
+.book-button:hover {
+  background-color: darkorange;
+  cursor: pointer;
+}
 .Heading {
   background-color: #1a244f;
   color: whitesmoke;

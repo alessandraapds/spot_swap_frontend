@@ -13,11 +13,13 @@ const OfferRegistration = () => {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
   const url = "http://localhost:8001/offers";
+  const userId = sessionStorage.getItem("userId");
 
   const postOffer = async (e) => {
     e.preventDefault();
     const headers = { "Content-Type": "application/json" };
     const payload = {
+      userId,
       offerName,
       street,
       city,

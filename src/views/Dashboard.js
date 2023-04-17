@@ -10,18 +10,31 @@ const { data, isLoading, error } = useFetch(api_url + 'offers');
 const { data: booking, isLoading: isLoadingBooking, error: errorBooking } = useFetch(api_url + 'booking')
 const userId = sessionStorage.getItem("userId")
 const bookings = booking.filter((booking) => booking.user_id === userId);
-const offers = data.filter((offer) => offer.user_id === userId );
+const offers = data.filter((offer) => offer.userId === userId );
+// console.log(offers, 'offers')
+//check whether spot is booked or not
 const bookedSpots = []
-for (let i =0; i< data.length; i++) { 
-if (data[i].isAvailable === false) {
-  bookedSpots.push(data[i])
-  console.log(bookedSpots)
-}}
+for (let i = 0; i < offers.length; i++) {
+  for (let j = 0; j < booking.length; j++) {
+    if (offers[i]._id === booking[j].spot_id) {
+      bookedSpots.push(offers[i]);
+    }
+  }
+}
+  // const idToCheck = bookedSpots._id;
+  //   const inArray = idToCheck.some(id => bookedSpots.some(booking => booking.id === id))
+
+console.log(offers, 'offers')
+console.log(bookedSpots, 'booked')
+
+
+
+// calculate income from spots
 let totalIncome = 0;
 for (let i = 0; i < bookedSpots.length; i++){
   totalIncome += bookedSpots[i].price;
 }
-console.log(totalIncome, 'income')
+
   return (
     <Container fluid>
         <Row>
@@ -32,7 +45,9 @@ console.log(totalIncome, 'income')
            {isLoading ? (
         <p>Loading...</p>
       ) : (
-        data.map((offer) => {
+        offers.map((offer) => {
+          const isBooked = offers.map(offer => bookedSpots.some(booking => booking._id === offer._id))
+          console.log(isBooked)
           return (
             <Container>
                 <Row>
@@ -40,7 +55,7 @@ console.log(totalIncome, 'income')
                   <div>{offer.offerName} - {offer.street} - {offer.city}
 
                   <p>List Price: €{offer.price}</p>
-                  {offer.isAvailable === true ? <p style={{fontWeight: 'bold', color:"red"}}>Available</p>: <p style={{fontWeight: 'bold', color:"green"}}>Booked</p>}
+                  {isBooked ? (<p style={{fontWeight: 'bold', color:"red"}}>Available</p>): (<p style={{fontWeight: 'bold', color:"green"}}>Booked</p>)}
                   </div>
                   </Col>
                   
