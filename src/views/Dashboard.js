@@ -21,11 +21,8 @@ for (let i = 0; i < offers.length; i++) {
     }
   }
 }
-  // const idToCheck = bookedSpots._id;
-  //   const inArray = idToCheck.some(id => bookedSpots.some(booking => booking.id === id))
-
-console.log(offers, 'offers')
-console.log(bookedSpots, 'booked')
+// console.log(offers, 'offers')
+// console.log(bookedSpots, 'booked')
 
 
 
@@ -46,8 +43,8 @@ for (let i = 0; i < bookedSpots.length; i++){
         <p>Loading...</p>
       ) : (
         offers.map((offer) => {
-          const isBooked = offers.map(offer => bookedSpots.some(booking => booking._id === offer._id))
-          console.log(isBooked)
+          // const isBooked = offers.map(offer => bookedSpots.some(booking => booking._id === offer._id))
+
           return (
             <Container>
                 <Row>
@@ -55,7 +52,7 @@ for (let i = 0; i < bookedSpots.length; i++){
                   <div>{offer.offerName} - {offer.street} - {offer.city}
 
                   <p>List Price: €{offer.price}</p>
-                  {isBooked ? (<p style={{fontWeight: 'bold', color:"red"}}>Available</p>): (<p style={{fontWeight: 'bold', color:"green"}}>Booked</p>)}
+                  {offer.isAvailable ? (<p style={{fontWeight: 'bold', color:"red"}}>Available</p>): (<p style={{fontWeight: 'bold', color:"green"}}>Booked</p>)}
                   </div>
                   </Col>
                   
@@ -86,6 +83,8 @@ for (let i = 0; i < bookedSpots.length; i++){
                    From: {booking.start_time}
                    <br />
                    To: {booking.end_time}
+                   <br />
+                   Cost: €{booking.total_cost}
                    </div>
                   </Col>
                 </Row>
