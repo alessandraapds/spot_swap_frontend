@@ -1,3 +1,13 @@
+.search-form {
+  margin: 50px 50px;
+  text-align: center;
+}
+
+.search-input {
+  width: 500px;
+  margin: 15px;
+}
+
 .offer-list {
   margin: 50px;
   text-align: center;
@@ -7,6 +17,6 @@
   display: block;
   margin: 0 auto;
   width: 250px;
-  height: 250px;
-  border: 3px solid black;
+  height: 200px;
+  border: 1px solid grey;
 }

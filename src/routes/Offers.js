@@ -10,7 +10,7 @@ const Offers = ({ keyword }) => {
   const { data, isLoading, error } = useFetch(url);
   const navigate = useNavigate();
 
-  // console.log(data, "testing api");
+  console.log(data, "testing datarespose");
 
   const handleBookSpot = (id) => {
     // console.log("Hello", id);
@@ -19,17 +19,19 @@ const Offers = ({ keyword }) => {
   };
   return (
     <div>
-      <h2>Check all our available spots</h2>
+      {/* <h4>All available spots</h4> */}
       {isLoading ? (
         <p>Loading...</p>
       ) : !keyword ? (
         data.map((offer) => {
           return (
             <div class="container offer-list">
-              <div class="row border align-self-center">
-                <div class="col-5">
+              <div class="row align-self-center">
+                <div class="col-5 align-self-center">
                   <div>
-                    <strong>{offer.offerName}</strong>
+                    <em>
+                      <strong>{offer.offerName}</strong>
+                    </em>
                   </div>
                   <div>
                     <GeoAltFill /> {offer.street} - {offer.city},{" "}
@@ -38,15 +40,17 @@ const Offers = ({ keyword }) => {
                   <div>
                     {" "}
                     <CalendarDay />
-                    Available from: {offer.availableFrom}
+                    Available from:{" "}
+                    {new Date(offer.availableFrom).toUTCString()}
                   </div>
                   <div>
                     {" "}
                     <CalendarDay />
-                    Available until: {offer.availableUntil}
+                    Available until:{" "}
+                    {new Date(offer.availableUntil).toUTCString()}
                   </div>
                 </div>
-                <div class="col-3">
+                <div class="col-3 align-self-center">
                   <div>
                     Price: <CurrencyEuro />
                     {offer.price}
@@ -66,7 +70,11 @@ const Offers = ({ keyword }) => {
             </div>
           );
         })
-      ) : (
+      ) : data.find(
+          (listing) =>
+            listing.offerName.toLowerCase().includes(keyword.toLowerCase()) ||
+            listing.city === keyword
+        ) ? (
         data.map((offer) => {
           if (
             offer.offerName.toLowerCase().includes(keyword.toLowerCase()) ||
@@ -77,7 +85,9 @@ const Offers = ({ keyword }) => {
                 <div class="row">
                   <div class="col-5">
                     <div>
-                      <strong>{offer.offerName}</strong>
+                      <em>
+                        <strong>{offer.offerName}</strong>
+                      </em>
                     </div>
                     <div>
                       <GeoAltFill /> {offer.street} - {offer.city},{" "}
@@ -86,12 +96,14 @@ const Offers = ({ keyword }) => {
                     <div>
                       {" "}
                       <CalendarDay />
-                      Available from: {offer.availableFrom}
+                      Available from:{" "}
+                      {new Date(offer.availableFrom).toUTCString()}
                     </div>
                     <div>
                       {" "}
                       <CalendarDay />
-                      Available until: {offer.availableUntil}
+                      Available until:{" "}
+                      {new Date(offer.availableUntil).toUTCString()}
                     </div>
                   </div>
                   <div class="col-3">
@@ -111,6 +123,10 @@ const Offers = ({ keyword }) => {
             );
           }
         })
+      ) : (
+        <p>
+          <strong>No matches found</strong>
+        </p>
       )}
     </div>
   );
