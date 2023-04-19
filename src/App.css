@@ -122,7 +122,18 @@ h1 {
   border-radius: 10px;
   font-style: italic;
 }
-
+.cancel_button {
+  padding: 8px 20px;
+  background-color: rgb(224, 33, 33);
+  color: white;
+  border: 1px solid rgb(233, 63, 29);
+  border-radius: 10px;
+  font-style: italic;
+}
+.cancel_button:hover {
+  background-color:#f73e34e5;
+  cursor: pointer;
+}
 .book-button:hover {
   background-color:#ccc;
   cursor: pointer;

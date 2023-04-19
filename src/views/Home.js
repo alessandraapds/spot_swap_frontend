@@ -14,6 +14,7 @@ const Home = () => {
       <div className="Heading"><h1>Welcome Back {name}</h1></div>
       <Form />
     </div>
+    
   );
 };
 

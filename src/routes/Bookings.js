@@ -1,17 +1,19 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
+import { Spinner } from "react-bootstrap";
 // import Payment from "../components/Payment";
 
 const NewBooking = () => {
   const { id } = useParams();
   const { data, isLoading, error } = useFetch(
-    `http://localhost:8001/offers/${id}`
+    `http://localhost:8001/offers/${id}`,
+    { delay: 1000 }
   );
   console.log(id);
   const userId = sessionStorage.getItem("userId");
   const userName = sessionStorage.getItem("userName");
-  
+
   const navigate = useNavigate();
   // const handleBookSpot = (id) => {
   //    console.log("Hello", id);
@@ -19,7 +21,13 @@ const NewBooking = () => {
   // };
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="d-flex justify-content-center">
+        <Spinner animation="border" role="status">
+          <span className="sr-only">Loading...</span>
+        </Spinner>
+      </div>
+    );
   }
 
   if (error) {
@@ -44,7 +52,7 @@ const NewBooking = () => {
     const start_time = data.availableFrom;
     const end_time = data.availableUntil;
     const total_cost = data.price;
-    
+
     const payload = {
       booking_status,
       user_id,
@@ -89,27 +97,25 @@ const NewBooking = () => {
       {/* <h1>Hello user: {userName}</h1> */}
       <h2 className="BookingDetails"> Booking Details</h2>
       <div className="booking-container">
-      <p className="booking-detail">Parking name: {data.offerName}</p>
-      <p className="booking-detail">Address: {data.street}</p>
-      <p className="booking-detail">City: {data.city}</p>
-      <p className="booking-detail">Size: {data.offerSize}</p>
-      <p className="booking-detail">Parking Spot available:</p>
-      <p className="booking-detail">From : {data.availableFrom}</p>
-      <p className="booking-detail">Until : {data.availableUntil}</p>
-      <p className="booking-detail">Total Price €:{data.price}</p>
-      <p className="booking-detail">
-        {" "}
-        * Free cancellation up to 24 hours prior to arrival{" "}
-        <br></br>
-        <br></br>
-        
-      </p> <button className="book-button" onClick={handleBookSpot}>
-        Book this spot
-      </button>
-    </div>
+        <p className="booking-detail">Parking name: {data.offerName}</p>
+        <p className="booking-detail">Address: {data.street}</p>
+        <p className="booking-detail">City: {data.city}</p>
+        <p className="booking-detail">Size: {data.offerSize}</p>
+        <p className="booking-detail">Parking Spot available:</p>
+        <p className="booking-detail">From : {data.availableFrom}</p>
+        <p className="booking-detail">Until : {data.availableUntil}</p>
+        <p className="booking-detail">Total Price €:{data.price}</p>
+        <p className="booking-detail">
+          {" "}
+          * Free cancellation up to 24 hours prior to arrival <br></br>
+          <br></br>
+        </p>{" "}
+        <button className="book-button" onClick={handleBookSpot}>
+          Book this spot
+        </button>
+      </div>
     </div>
   );
-
 };
 
 export default NewBooking;

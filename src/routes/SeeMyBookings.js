@@ -82,7 +82,7 @@ const Bookings = () => {
               <p>End time: {booking.end_time}</p>
               <p>Total cost € : {booking.total_cost}</p>
               <p>Booking status: {booking.booking_status}</p>
-              <button onClick={() => handleDelete(booking._id)}>Delete</button>
+              <button className="cancel_button" onClick={() => handleDelete(booking._id)}>Cancel</button>
             </li>
           ))}
         </ul>

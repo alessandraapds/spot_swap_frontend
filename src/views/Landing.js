@@ -6,6 +6,7 @@ import Signup from "./Signup";
 
 const Landingpage = () => {
   return (
+    
     <div>
       <div className="container text-center py-4">
         <div className="row mt-4">
@@ -46,7 +47,7 @@ const Landingpage = () => {
                 </div>
               </div>
             </div>
-            <div className="col-12 col-md-6 col-lg-4">
+            <div className="col-1 col-md-6 col-lg-4">
               <div className="card">
                 <img
                   src="images/duesseldorf.jpeg"
@@ -82,21 +83,11 @@ const Landingpage = () => {
       </div>
       <footer className="footer">
         <p className="mb-0">Connect with us:</p>
-        <div className="social-links mt-2">
-          <a href="#">
-            <i className="bi bi-facebook"></i>
-          </a>
-          <a href="#">
-            <i className="bi bi-twitter"></i>
-          </a>
-          <a href="#">
-            <i className="bi bi-instagram"></i>
-          </a>
-        </div>
-        <p className="mt-3 mb-0">Created by Allessandra , Emma und Luis </p>
+      <p className="mt-3 mb-0">Created by Allessandra , Emma und Luis </p>
       </footer>
     </div>
   );
+  
 };
 
 export default Landingpage;
