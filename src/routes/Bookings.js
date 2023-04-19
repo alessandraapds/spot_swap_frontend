@@ -11,6 +11,7 @@ const NewBooking = () => {
   console.log(id);
   const userId = sessionStorage.getItem("userId");
   const userName = sessionStorage.getItem("userName");
+  
   const navigate = useNavigate();
   // const handleBookSpot = (id) => {
   //    console.log("Hello", id);

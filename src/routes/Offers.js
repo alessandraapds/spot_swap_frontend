@@ -95,7 +95,9 @@ const Offers = ({ keyword }) => {
                       Price: <CurrencyEuro />
                       {offer.price}
                     </div>
-                    <button>Book spot</button>
+                    <button onClick={() => handleBookSpot(offer._id)}>
+                      Book spot
+                    </button>
                   </div>
                   <div class="col-2">
                     <Maps street={offer.street} city={offer.city} />
