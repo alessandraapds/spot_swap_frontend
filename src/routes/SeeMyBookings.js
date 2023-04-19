@@ -62,9 +62,13 @@ const Bookings = () => {
   }
 
   return (
+    <div>
+      <div className="BookingDetails">
+      <h1>See your bookings below:</h1>
+      </div>
     <div className="booking-container">
       {/* <h1>Hello user: {userId}</h1> */}
-      <h1>See your bookings below:</h1>
+      
       {bookings.length === 0 ? (
         <p>You have no bookings yet.</p>
       ) : (
@@ -83,6 +87,7 @@ const Bookings = () => {
           ))}
         </ul>
       )}
+    </div>
     </div>
   );
 };
