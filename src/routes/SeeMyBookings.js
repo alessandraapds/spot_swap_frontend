@@ -33,6 +33,22 @@ const Bookings = () => {
     }
   }, [bookingData, offerData, userId]);
 
+  const handleDelete = async (bookingId) => {
+    try {
+      const response = await fetch(`http://localhost:8001/booking/${bookingId}`, {
+        method: 'DELETE',
+      });
+      if (response.ok) {
+        const updatedBookings = bookings.filter(booking => booking._id !== bookingId);
+        setBookings(updatedBookings);
+      } else {
+        throw new Error('Failed to delete booking.');
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   if (bookingIsLoading || offerIsLoading) {
     return <div>Loading...</div>;
   }
@@ -62,7 +78,7 @@ const Bookings = () => {
               <p>End time: {booking.end_time}</p>
               <p>Total cost € : {booking.total_cost}</p>
               <p>Booking status: {booking.booking_status}</p>
-              <button>Delete</button>
+              <button onClick={() => handleDelete(booking._id)}>Delete</button>
             </li>
           ))}
         </ul>
@@ -72,6 +88,8 @@ const Bookings = () => {
 };
 
 export default Bookings;
+
+// export default Bookings;
 
 // const Bookings = () => {
 //   const { id } = useParams();
