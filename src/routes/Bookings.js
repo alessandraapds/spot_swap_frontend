@@ -15,6 +15,7 @@ const NewBooking = () => {
   const userName = sessionStorage.getItem("userName");
 
   const navigate = useNavigate();
+  
   // const handleBookSpot = (id) => {
   //    console.log("Hello", id);
   //   // navigate("/Payment/" + id);
@@ -119,3 +120,4 @@ const NewBooking = () => {
 };
 
 export default NewBooking;
+
