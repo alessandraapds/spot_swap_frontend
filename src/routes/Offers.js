@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useFetch from "../hooks/useFetch";
 import "../styles/styles.css";
-import { GeoAltFill, CalendarDay, CurrencyEuro } from "react-bootstrap-icons";
+import {
+  GeoAltFill,
+  CalendarDay,
+  CurrencyEuro,
+  ExclamationDiamondFill,
+} from "react-bootstrap-icons";
 import Maps from "../components/Maps";
 import { useNavigate } from "react-router-dom";
 
@@ -10,26 +15,31 @@ const Offers = ({ keyword }) => {
   const { data, isLoading, error } = useFetch(url);
   const navigate = useNavigate();
 
-  // console.log(data, "testing api");
-
   const handleBookSpot = (id) => {
     // console.log("Hello", id);
     navigate("/bookings/" + id);
     // navigate("/Payment/" + id);
   };
+
+  const showNewSearch = () => {
+    window.location.reload(false);
+  };
+
   return (
     <div>
-      <h2>Check all our available spots</h2>
+      {/* <h4>All available spots</h4> */}
       {isLoading ? (
         <p>Loading...</p>
       ) : !keyword ? (
         data.map((offer) => {
           return (
             <div class="container offer-list">
-              <div class="row border align-self-center">
-                <div class="col-5">
+              <div class="row align-self-center">
+                <div class="col-5 align-self-center">
                   <div>
-                    <strong>{offer.offerName}</strong>
+                    <em>
+                      <strong>{offer.offerName}</strong>
+                    </em>
                   </div>
                   <div>
                     <GeoAltFill /> {offer.street} - {offer.city},{" "}
@@ -38,22 +48,24 @@ const Offers = ({ keyword }) => {
                   <div>
                     {" "}
                     <CalendarDay />
-                    Available from: {offer.availableFrom}
+                    <strong> Available from: </strong>
+                    {new Date(offer.availableFrom).toUTCString()}
                   </div>
                   <div>
                     {" "}
                     <CalendarDay />
-                    Available until: {offer.availableUntil}
+                    <strong> Available until: </strong>
+                    {new Date(offer.availableUntil).toUTCString()}
                   </div>
                 </div>
-                <div class="col-3">
+                <div class="col-3 align-self-center">
                   <div>
                     Price: <CurrencyEuro />
                     {offer.price}
                   </div>
                   <button
                     type="button"
-                    class="btn btn-success"
+                    class="booking-button"
                     onClick={() => handleBookSpot(offer._id)}
                   >
                     Book spot
@@ -66,18 +78,24 @@ const Offers = ({ keyword }) => {
             </div>
           );
         })
-      ) : (
+      ) : data.find(
+          (listing) =>
+            listing.offerName.toLowerCase().includes(keyword.toLowerCase()) ||
+            listing.city.toLowerCase() === keyword.toLowerCase()
+        ) ? (
         data.map((offer) => {
           if (
             offer.offerName.toLowerCase().includes(keyword.toLowerCase()) ||
-            offer.city === keyword
+            offer.city.toLowerCase() === keyword.toLowerCase()
           ) {
             return (
               <div class="container offer-list">
-                <div class="row">
-                  <div class="col-5">
+                <div class="row align-self-center">
+                  <div class="col-5 align-self-center">
                     <div>
-                      <strong>{offer.offerName}</strong>
+                      <em>
+                        <strong>{offer.offerName}</strong>
+                      </em>
                     </div>
                     <div>
                       <GeoAltFill /> {offer.street} - {offer.city},{" "}
@@ -86,20 +104,26 @@ const Offers = ({ keyword }) => {
                     <div>
                       {" "}
                       <CalendarDay />
-                      Available from: {offer.availableFrom}
+                      <strong> Available from: </strong>
+                      {new Date(offer.availableFrom).toUTCString()}
                     </div>
                     <div>
                       {" "}
                       <CalendarDay />
-                      Available until: {offer.availableUntil}
+                      <strong> Available until: </strong>
+                      {new Date(offer.availableUntil).toUTCString()}
                     </div>
                   </div>
-                  <div class="col-3">
+                  <div class="col-3 align-self-center">
                     <div>
                       Price: <CurrencyEuro />
                       {offer.price}
                     </div>
-                    <button type="button" class="btn btn-success">
+                    <button
+                      onClick={() => handleBookSpot(offer._id)}
+                      type="button"
+                      class="booking-button"
+                    >
                       Book spot
                     </button>
                   </div>
@@ -111,6 +135,16 @@ const Offers = ({ keyword }) => {
             );
           }
         })
+      ) : (
+        <div>
+          <h4>
+            <ExclamationDiamondFill />
+            No matches found!
+          </h4>
+          <button class="btn btn-warning" onClick={showNewSearch}>
+            New search
+          </button>
+        </div>
       )}
     </div>
   );

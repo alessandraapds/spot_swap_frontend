@@ -59,7 +59,6 @@ h2{
   text-align: center;
 }
 h1 {
-  /* background-color: #61dafb; */
   text-align: center;
 }
 .credit-card-form {
@@ -128,4 +127,20 @@ h1 {
   background-color: darkorange;
   cursor: pointer;
 }
+.Heading {
+  background-color: #1a244f;
+  color: whitesmoke;
+  padding: 3rem;
+}
 
+.listedSpots{
+  border-radius: 10px;
+  margin: 1.5rem;
+  background-color: #b8733342;
+  
+}
+.bookedSpots{
+  border-radius: 10px;
+  margin: 1.5rem;
+  background-color:#ffd900ab;
+}

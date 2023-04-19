@@ -1,12 +1,97 @@
-.offer-list {
-  margin: 50px;
+.search-form {
+  padding: 50px 50px;
   text-align: center;
+  background-color: darkblue;
+  color: white;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+.search-input {
+  width: 500px;
+  padding: 5px;
+  margin: 15px;
+  border-radius: 3px;
+  border: 1px solid orange;
+}
+
+.search-button {
+  padding: 5px 20px;
+  background-color: orange;
+  color: white;
+  border: 1px solid orange;
+  border-radius: 10px;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.search-button:hover {
+  background-color: white;
+  color: orange;
+}
+
+.offer-list {
+  margin: 30px;
+  text-align: center;
+  background-color: rgba(240, 248, 76, 0.6);
+  border-radius: 25px;
+}
+
+.offer-list:hover {
+  background-color: rgba(240, 248, 76, 0.8);
+}
+
+.booking-button {
+  padding: 8px 20px;
+  background-color: green;
+  color: white;
+  border: 1px solid green;
+  border-radius: 10px;
+  font-style: italic;
+}
+
+.booking-button:hover {
+  background-color: white;
+  color: green;
 }
 
 .leaflet-container {
   display: block;
   margin: 0 auto;
   width: 250px;
-  height: 250px;
-  border: 3px solid black;
+  height: 200px;
+  border: 1px solid grey;
+}
+
+.registration-form {
+  font-weight: bold;
+  padding: 50px;
+}
+
+.form-group {
+  margin: 15px;
+}
+
+.offer-registration-button {
+  padding: 8px 20px;
+  background-color: green;
+  color: white;
+  border: 1px solid green;
+  border-radius: 10px;
+  font-style: italic;
+  margin: 15px;
+}
+
+.offer-registration-button:hover {
+  background-color: white;
+  color: green;
+}
+
+.confirmation-page {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  color: green;
+  font-weight: bold;
+  font-size: 20px;
 }

@@ -63,7 +63,7 @@ const Signup = () => {
 <div className='signup'>
 
     <div>
-      <a class="nav-link active" onClick={onOpenModal}>Sign Up</a>
+       <a class="nav-link active" onClick={onOpenModal}>Sign Up</a>
       <Modal open={open} onClose={onCloseModal} center>
          <h2>Sign Up</h2>
          <br></br>

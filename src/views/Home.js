@@ -3,17 +3,16 @@ import Form from "../components/Form";
 import { useNavigate } from "react-router";
 
 const Home = () => {
-  const userId = sessionStorage.getItem("userId")
+  const userId = sessionStorage.getItem("userId");
   const token = sessionStorage.getItem("jwt");
+  const name = sessionStorage.getItem("name")
   const navigate = useNavigate()
   return (
-    
     <div>
       {!token ? navigate("/") : null}
       <Navbar />
+      <div className="Heading"><h1>Welcome Back {name}</h1></div>
       <Form />
-
-      Welcome Home User Number: {userId} 
     </div>
   );
 };

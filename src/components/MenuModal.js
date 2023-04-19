@@ -17,9 +17,10 @@ const MenuModal = () => {
     <div>MenuModal
         <button onClick={onOpenModal}>Open</button>
     <Modal open={open} onClose={onCloseModal} center>
-      
+      {}
         <Login />
-        <p>Text</p>
+      
+        
 
     </Modal>
 
