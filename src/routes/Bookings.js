@@ -72,10 +72,19 @@ const NewBooking = () => {
         body: JSON.stringify(payload),
       });
       if (response.ok) {
-        navigate("/SeeMyBookings"); // inside here to do the put request
+        const update = await fetch(`http://localhost:8001/offers/${id}`, {
+          method: "PUT",
+          headers,
+          body: JSON.stringify({isAvailable: false})
+        });
+        if (update.ok) {
+          setTimeout(() => {
+          }, 3000)
+        }
+
+        // inside here to do the put request
         // setSuccess(true)
         // setTimeout(() => {
-        //    navigate('/login')
         // })
       } else {
         //  const errorData = await response.json();
@@ -87,6 +96,7 @@ const NewBooking = () => {
       //     setError(null)
       //  }, 3000)
     } finally {
+      navigate("/SeeMyBookings");
     }
 
     // navigate(`/payment/${id}`, { state: { userId } });
