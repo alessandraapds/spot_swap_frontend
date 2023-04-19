@@ -84,27 +84,29 @@ const NewBooking = () => {
   };
 
   return (
-    <div className="booking-container">
-
-
-      <h1>Hello user: {userId}</h1>
-      <h1>Hello user: {userName}</h1>
-      <h2>Your booking details</h2>
+    <div>
+      {/* <h1>Hello user: {userId}</h1> */}
+      {/* <h1>Hello user: {userName}</h1> */}
+      <h2 className="BookingDetails"> Booking Details</h2>
+      <div className="booking-container">
       <p className="booking-detail">Parking name: {data.offerName}</p>
       <p className="booking-detail">Address: {data.street}</p>
       <p className="booking-detail">City: {data.city}</p>
       <p className="booking-detail">Size: {data.offerSize}</p>
       <p className="booking-detail">Parking Spot available:</p>
-      <p className="booking-detail">from : {data.availableFrom}</p>
-      <p className="booking-detail">until : {data.availableUntil}</p>
+      <p className="booking-detail">From : {data.availableFrom}</p>
+      <p className="booking-detail">Until : {data.availableUntil}</p>
       <p className="booking-detail">Total Price €:{data.price}</p>
       <p className="booking-detail">
         {" "}
         * Free cancellation up to 24 hours prior to arrival{" "}
-      </p>
-      <button className="book-button" onClick={handleBookSpot}>
+        <br></br>
+        <br></br>
+        
+      </p> <button className="book-button" onClick={handleBookSpot}>
         Book this spot
       </button>
+    </div>
     </div>
   );
 
