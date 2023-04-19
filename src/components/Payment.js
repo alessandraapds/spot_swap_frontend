@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 const Payment = () => {
   const [isBooked, setIsBooked] = useState(false);
@@ -26,10 +27,49 @@ const CreditCardForm = ({ onSubmit }) => {
   const [cardHolderName, setCardHolderName] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
   const [cvv, setCvv] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(false);
+  const { id } = useParams();
+  const url = `http://localhost:8001/offers/:${id}`;
+  const isAvailable = false;
+
+  // console.log(id, "checking id");
+  // const type = typeof id;
+  // console.log(type);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     onSubmit(e);
+  };
+
+  const changeAvailable = async (e) => {
+    e.preventDefault();
+    const headers = { "Content-Type": "application/json" };
+    const payload = {
+      isAvailable,
+    };
+
+    try {
+      const response = await fetch(url, {
+        method: "PUT",
+        headers,
+        body: JSON.stringify(payload),
+      });
+      if (response.ok) {
+        setSuccess(true);
+      } else {
+        const errorData = await response.json();
+        throw new Error(errorData.message);
+      }
+    } catch (e) {
+      setError(e);
+      setTimeout(() => {
+        setError(null);
+      }, 3000);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -79,7 +119,9 @@ const CreditCardForm = ({ onSubmit }) => {
             required
           />
         </div>
-        <button type="submit">Book</button>
+        <button onClick={changeAvailable} type="submit">
+          Book
+        </button>
       </form>
     </div>
   );

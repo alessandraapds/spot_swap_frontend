@@ -15,7 +15,7 @@ const Form = () => {
   return (
     <div>
       <div class="search-form">
-        <h5>"Swap your spot. Unlock your city"</h5>
+        <h4>"Swap your spot. Unlock your city"</h4>
         <div class="container  d-flex justify-content-around">
           <form>
             <input
