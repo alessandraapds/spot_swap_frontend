@@ -1,8 +1,10 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
+
 import { Spinner } from "react-bootstrap";
 // import Payment from "../components/Payment";
+
 
 const NewBooking = () => {
   const { id } = useParams();
@@ -45,6 +47,7 @@ const NewBooking = () => {
   //   navigate(`/Payment/${id}`);
   // };
   // pass the user ID as a prop to the Payment component
+
   const handleBookSpot = async (e) => {
     e.preventDefault();
     const booking_status = "booked";
@@ -115,6 +118,7 @@ const NewBooking = () => {
           Book this spot
         </button>
       </div>
+
     </div>
   );
 };

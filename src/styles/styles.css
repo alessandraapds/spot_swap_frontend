@@ -1,10 +1,13 @@
 .search-form {
-  padding: 50px 50px;
+  padding: 180px 50px;
   text-align: center;
-  background-color: darkblue;
-  color: white;
+  color: black;
+  text-shadow: 3px 3px 4px white;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
+  background-image: url("/src/styles/parkedcars.jpg");
+  /* background-size: contain; */
+  background-size: cover;
 }
 
 .search-input {
@@ -12,14 +15,14 @@
   padding: 5px;
   margin: 15px;
   border-radius: 3px;
-  border: 1px solid orange;
+  border: 3px solid #1a244f;
 }
 
 .search-button {
   padding: 5px 20px;
-  background-color: orange;
+  background-color: #1a244f;
   color: white;
-  border: 1px solid orange;
+  border: 1px solid #1a244f;
   border-radius: 10px;
   font-style: italic;
   font-weight: bold;
@@ -27,7 +30,7 @@
 
 .search-button:hover {
   background-color: white;
-  color: orange;
+  color: #1a244f;
 }
 
 .offer-list {
@@ -61,6 +64,12 @@
   width: 250px;
   height: 200px;
   border: 1px solid grey;
+}
+
+.register-form {
+  background-color: #1a244f;
+  padding: 50px 50px;
+  color: white;
 }
 
 .registration-form {
