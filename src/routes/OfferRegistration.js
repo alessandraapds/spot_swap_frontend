@@ -20,7 +20,9 @@ const OfferRegistration = () => {
   const navigate = useNavigate();
   const createdAt = new Date();
 
-  console.log(createdAt, "testing date");
+  // console.log(createdAt, "testing date");
+  // const typeuserid = typeof userId;
+  // console.log(typeuserid, "type of user id");
 
   const postOffer = async (e) => {
     e.preventDefault();
@@ -75,7 +77,7 @@ const OfferRegistration = () => {
 
   return (
     <div>
-      <div class="search-form">
+      <div class="register-form">
         <h2>
           {" "}
           <Clipboard2CheckFill /> Register your offer
