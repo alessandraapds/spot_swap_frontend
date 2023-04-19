@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
-import Payment from "../components/Payment";
+// import Payment from "../components/Payment";
 
 const NewBooking = () => {
   const { id } = useParams();
@@ -37,18 +37,19 @@ const NewBooking = () => {
   // pass the user ID as a prop to the Payment component
   const handleBookSpot = async (e) => {
     e.preventDefault();
+    const booking_status = "booked";
     const user_id = userId;
     const spot_id = id;
     const start_time = data.availableFrom;
     const end_time = data.availableUntil;
-    const booking_status = "booked";
     const total_cost = data.price;
+    
     const payload = {
+      booking_status,
       user_id,
       spot_id,
       start_time,
       end_time,
-      booking_status,
       total_cost,
     };
 
