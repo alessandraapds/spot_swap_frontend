@@ -156,7 +156,7 @@ h1 {
 .BookingDetails {
   padding: 50px 50px;
   text-align: center;
-  background-color: rgb(41, 41, 168);
+  background-color: #1a244f;
   color: white;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
@@ -193,3 +193,17 @@ h1 {
   font-weight: bold;
 }
 
+.customModal {
+  background: #1d264ee5 !important;
+  color: #fff !important;
+  border-radius: 10px!important;
+}
+.signUpButton {
+  border-radius: 5px;
+}
+.loginButton {
+  border-radius: 5px;
+}
+label {
+  margin-right: 10px;
+}

@@ -12,7 +12,7 @@ const Maps = ({ street, city }) => {
   // const mapUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=${mapKey}`;
 
   // MapQuest
-  const mapKey = "RJBWULAYj6sU6ou3OYcjRj0pIK7911NN";
+  const mapKey = "kR1aIlBkHmlqU8bAPFW06iSyMPEVO3Mj";
   const mapUrl = `https://www.mapquestapi.com/geocoding/v1/address?key=${mapKey}&location=${street}+${city}`;
 
   const [mapData, setMapData] = useState([]);

@@ -4,7 +4,7 @@ import { FaFacebook, FaTwitter, FaInstagram, FaGithub } from "react-icons/fa";
 const Footer = () => {
     const currentYear = new Date().getFullYear();
   return (
-    <footer>
+    <footer className="footer">
       <div className="contact-info">
         <p>SpotSwap</p>
         {/* <p>Phone: (555) 555-5555</p> */}

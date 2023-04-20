@@ -64,37 +64,44 @@ const Signup = () => {
 
     <div>
        <a class="nav-link active" onClick={onOpenModal}>Sign Up</a>
-      <Modal open={open} onClose={onCloseModal} center>
+      <Modal open={open} onClose={onCloseModal} center classNames={{
+          modal: 'customModal'
+        }}>
          <h2>Sign Up</h2>
          <br></br>
       <form className='userform' onSubmit={handleSubmit}>
         <label>
             First Name: 
+            </label>
             <input type="text" name="firstName" value={firstName}  onChange={(e) => setFirstName(e.target.value)}></input>      
-         </label>
+         
          <br></br>
          <label>
             Last Name: 
+            </label>
             <input type="text" name="lastName" value={lastName}  onChange={(e) => setLastName(e.target.value)}></input>      
-         </label>
+         
          <br></br>
          <label>
             Select username: 
+           </label>
             <input type="text" name="username" value={username}  onChange={(e) => setUsername(e.target.value)}></input>      
-         </label>
+         
          <br></br>
          <label>
             E-mail: 
+           </label>
             <input type="email" name="email" value={contactEmail}  onChange={(e) => setContactEmail(e.target.value)}></input>      
-         </label>
+         
          <br></br>
          <label>
             Password: 
+           </label>
             <input type="text" name="password" value={password}  onChange={(e) => setPassword(e.target.value)}></input>      
-         </label>
+         
          <br></br>
          <br></br>
-         <button type="submit" value="Sign Up">Sign Up</button>
+         <button type="submit" value="Sign Up" className='signUpButton'>Sign Up</button>
          
     </form> 
     <br></br>

@@ -73,23 +73,21 @@ const Login = () => {
       <form className='userform' onSubmit={handleSubmit}>
          <label>
             Username: 
+             </label>
             <input type="text" name="username" value={username}  onChange={(e) => setUsername(e.target.value)}></input>      
-         </label>
+        
          <br></br>
          <label>
             Password: 
-            <input type="text" name="password" value={password}  onChange={(e) => setPassword(e.target.value)}></input>      
          </label>
+            <input type="text" name="password" value={password}  onChange={(e) => setPassword(e.target.value)}></input>      
+         
          <br></br>
          <br></br>
-         <button type="submit" value="Login">Login</button>
+         <button type="submit" value="Login" className='loginButton'>Login</button>
         
     </form>
     <br></br>
-    <p>Not Registered Sign Up Now</p>
-
-      {show === true ? 
-        <Signup /> : '' }
       
       </Modal>
     </div>
