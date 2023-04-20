@@ -83,7 +83,7 @@ const Signup = () => {
          
          <br></br>
          <label>
-            Select username: 
+            Username: 
            </label>
             <input type="text" name="username" value={username}  onChange={(e) => setUsername(e.target.value)}></input>      
          

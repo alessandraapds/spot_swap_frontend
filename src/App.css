@@ -207,3 +207,7 @@ h1 {
 label {
   margin-right: 10px;
 }
+img {
+  min-width: 100%;
+
+}
