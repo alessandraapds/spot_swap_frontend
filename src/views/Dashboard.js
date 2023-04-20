@@ -12,7 +12,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchOffers = async () => {
       try {
-        const response = await fetch(api_url + 'offers');
+        const response = await fetch(api_url + 'offers/alloffers');
         const data = await response.json();
         setOffers(data);
       } catch (error) {
