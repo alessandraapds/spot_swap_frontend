@@ -63,9 +63,9 @@ const Bookings = () => {
 
   return (
     <div>
-      <div className="BookingDetails">
+      {/* <div className="BookingDetails">
       <h1>See your bookings below:</h1>
-      </div>
+      </div> */}
     <div className="booking-container">
       {/* <h1>Hello user: {userId}</h1> */}
       

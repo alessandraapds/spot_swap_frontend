@@ -83,7 +83,7 @@ const Landingpage = () => {
       </div>
       <footer className="footer">
         <p className="mb-0">Connect with us:</p>
-      <p className="mt-3 mb-0">Created by Allessandra , Emma und Luis </p>
+      <p className="mt-3 mb-0">Created by Allessandra , Emma and Luis </p>
       </footer>
     </div>
   );
