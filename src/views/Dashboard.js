@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Navbar from "../components/NavBar";
 import useFetch from "../hooks/useFetch";
-
+import Footer from '../components/Footer';
 const Dashboard = () => {
   const name = sessionStorage.getItem("name");
   const api_url = process.env.REACT_APP_BACKEND_URL;
@@ -47,6 +47,7 @@ const Dashboard = () => {
   }, 0);
 
   return (
+    <wrapper>
     <Container fluid>
       <Row>
         <Col className="Heading"><h1>Welcome to your dashboard {name}</h1></Col>
@@ -105,6 +106,11 @@ const Dashboard = () => {
         </Col>
       </Row>
     </Container>
+    <footer className="footer_dashboard">
+      
+        <Footer/>
+    </footer>
+    </wrapper>
   );
 };
 
