@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Clipboard2CheckFill } from "react-bootstrap-icons";
+import Footer from "../components/Footer";
 
 const OfferRegistration = () => {
   const [offerName, setOfferName] = useState(null);
@@ -76,6 +77,7 @@ const OfferRegistration = () => {
   };
 
   return (
+    <wrapper>
     <div>
       <div class="register-form">
         <h2>
@@ -208,6 +210,10 @@ const OfferRegistration = () => {
         </form>
       </div>
     </div>
+    <footer className="footer">
+      <Footer/>
+    </footer>
+    </wrapper>
   );
 };
 

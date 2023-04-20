@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
 import useFetch from "../hooks/useFetch";
 import "../styles/styles.css";
+
+import footer from "../components/Footer";
+
 import {
   GeoAltFill,
   CalendarDay,
@@ -9,6 +12,7 @@ import {
 } from "react-bootstrap-icons";
 import Maps from "../components/Maps";
 import { useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
 
 const Offers = ({ keyword }) => {
   const url = "http://localhost:8001/offers";
@@ -146,7 +150,9 @@ const Offers = ({ keyword }) => {
           </button>
         </div>
       )}
+    
     </div>
+    
   );
 };
 
