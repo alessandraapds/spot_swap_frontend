@@ -7,9 +7,7 @@ const Navbar = () => {
     <div>
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/home">
-            SpotSwap
-          </a>
+          SpotSwap
           <button
             class="navbar-toggler"
             type="button"
@@ -29,8 +27,9 @@ const Navbar = () => {
               <a class="nav-link" href="registeryouroffer">
                 Offer a parking spot
               </a>
-              <a class="nav-link" href="/offers">
+              {/* <a class="nav-link" href="/offers">
                 See all parkings spots
+              </a> */}
               </a>
               <a class="nav-link" href="/SeeMyBookings">
                 See my Bookings

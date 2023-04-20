@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Offers from "../routes/Offers";
 import "../styles/styles.css";
 
@@ -6,10 +6,16 @@ const Form = () => {
   const [input, setInput] = useState(null);
   const [keyword, setKeyword] = useState(null);
 
+  const myRef = useRef(null);
+
+  // const executeScroll = () =>
+  // // run this function from an event handler or an effect to execute scroll
+
   const saveInput = (e) => {
     e.preventDefault();
     setKeyword(input);
     setInput("");
+    window.scrollTo(0, 5000);
   };
 
   return (
@@ -35,7 +41,7 @@ const Form = () => {
         </div>
       </div>
 
-      <Offers keyword={keyword} />
+      <Offers keyword={keyword} myRef={myRef} />
     </div>
   );
 };

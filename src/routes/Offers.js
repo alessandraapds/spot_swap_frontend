@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import useFetch from "../hooks/useFetch";
 import "../styles/styles.css";
 import {
@@ -6,11 +6,13 @@ import {
   CalendarDay,
   CurrencyEuro,
   ExclamationDiamondFill,
+  CashCoin,
 } from "react-bootstrap-icons";
 import Maps from "../components/Maps";
 import { useNavigate } from "react-router-dom";
+import Background from "../styles/logo1.png";
 
-const Offers = ({ keyword }) => {
+const Offers = ({ keyword, myRef }) => {
   const url = "http://localhost:8001/offers";
   const { data, isLoading, error } = useFetch(url);
   const navigate = useNavigate();
@@ -26,7 +28,13 @@ const Offers = ({ keyword }) => {
   };
 
   return (
-    <div>
+    <div
+    // ref={myRef}
+    // style={{
+    //   backgroundImage: `url(${Background})`,
+    //   width: "100%",
+    // }}
+    >
       {/* <h4>All available spots</h4> */}
       {isLoading ? (
         <p>Loading...</p>
@@ -34,8 +42,8 @@ const Offers = ({ keyword }) => {
         data.map((offer) => {
           return (
             <div class="container offer-list">
-              <div class="row align-self-center">
-                <div class="col-5 align-self-center">
+              <div class="row align-self-center ">
+                <div class="col-5 align-self-center ">
                   <div>
                     <em>
                       <strong>{offer.offerName}</strong>
@@ -58,9 +66,12 @@ const Offers = ({ keyword }) => {
                     {new Date(offer.availableUntil).toUTCString()}
                   </div>
                 </div>
-                <div class="col-3 align-self-center">
+                <div class="col-3 align-self-center ">
                   <div>
-                    Price: <CurrencyEuro />
+                    <strong>
+                      <CashCoin /> Price:
+                    </strong>{" "}
+                    <CurrencyEuro />
                     {offer.price}
                   </div>
                   <button
@@ -71,7 +82,7 @@ const Offers = ({ keyword }) => {
                     Book spot
                   </button>
                 </div>
-                <div class="col-4">
+                <div class="col-4 ">
                   <Maps street={offer.street} city={offer.city} />
                 </div>
               </div>
@@ -116,7 +127,10 @@ const Offers = ({ keyword }) => {
                   </div>
                   <div class="col-3 align-self-center">
                     <div>
-                      Price: <CurrencyEuro />
+                      <strong>
+                        <CashCoin /> Price:
+                      </strong>{" "}
+                      <CurrencyEuro />
                       {offer.price}
                     </div>
                     <button
@@ -136,13 +150,13 @@ const Offers = ({ keyword }) => {
           }
         })
       ) : (
-        <div>
+        <div class="no-matches" ref={myRef}>
           <h4>
             <ExclamationDiamondFill />
             No matches found!
           </h4>
           <button class="btn btn-warning" onClick={showNewSearch}>
-            New search
+            <strong>New search</strong>
           </button>
         </div>
       )}
