@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Clipboard2CheckFill } from "react-bootstrap-icons";
-import Background from "../styles/logo1.png";
+import Footer from "../components/Footer";
 
 const OfferRegistration = () => {
   const [offerName, setOfferName] = useState(null);
@@ -77,12 +77,8 @@ const OfferRegistration = () => {
   };
 
   return (
-    <div
-    // style={{
-    //   backgroundImage: `url(${Background})`,
-    //   width: "100%",
-    // }}
-    >
+    <wrapper>
+    <div>
       <div class="register-form">
         <h2>
           {" "}
@@ -214,6 +210,10 @@ const OfferRegistration = () => {
         </form>
       </div>
     </div>
+    <footer className="footer">
+      <Footer/>
+    </footer>
+    </wrapper>
   );
 };
 

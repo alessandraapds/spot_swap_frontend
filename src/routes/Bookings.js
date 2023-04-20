@@ -1,8 +1,9 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
-
+import Footer from "../components/Footer";
 import { Spinner } from "react-bootstrap";
+
 // import Payment from "../components/Payment";
 
 
@@ -107,6 +108,7 @@ const NewBooking = () => {
 
   return (
     <div>
+    <div>
       {/* <h1>Hello user: {userId}</h1> */}
       {/* <h1>Hello user: {userName}</h1> */}
       <h2 className="BookingDetails"> Booking Details</h2>
@@ -128,8 +130,15 @@ const NewBooking = () => {
           Book this spot
         </button>
       </div>
-
+     
     </div>
+    <footer className="footer">
+      <Footer/>
+        {/* <p className="mb-0">Connect with us:</p>
+      <p className="mt-3 mb-0">Created by Allessandra , Emma and Luis </p> */}
+      </footer>
+    </div>
+    
   );
 };
 

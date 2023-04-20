@@ -1,7 +1,7 @@
-
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
+import Footer from "../components/Footer";
 
 const Bookings = () => {
   const {
@@ -35,14 +35,19 @@ const Bookings = () => {
 
   const handleDelete = async (bookingId) => {
     try {
-      const response = await fetch(`http://localhost:8001/booking/${bookingId}`, {
-        method: 'DELETE',
-      });
+      const response = await fetch(
+        `http://localhost:8001/booking/${bookingId}`,
+        {
+          method: "DELETE",
+        }
+      );
       if (response.ok) {
-        const updatedBookings = bookings.filter(booking => booking._id !== bookingId);
+        const updatedBookings = bookings.filter(
+          (booking) => booking._id !== bookingId
+        );
         setBookings(updatedBookings);
       } else {
-        throw new Error('Failed to delete booking.');
+        throw new Error("Failed to delete booking.");
       }
     } catch (error) {
       console.error(error);
@@ -62,33 +67,45 @@ const Bookings = () => {
   }
 
   return (
+   <wrapper>
     <div>
       <div className="BookingDetails">
-      <h1>See your bookings below:</h1>
+        <h1>See your bookings</h1>
+        <div></div>
       </div>
-    <div className="booking-container">
-      {/* <h1>Hello user: {userId}</h1> */}
-      
-      {bookings.length === 0 ? (
-        <p>You have no bookings yet.</p>
-      ) : (
-        <ul>
-          {bookings.map((booking) => (
-            <li key={booking._id}>
-              <p>Parking name: {offers[booking.spot_id]?.offerName}</p>
-              <p>Address: {offers[booking.spot_id]?.street}</p>
-              <p>City: {offers[booking.spot_id]?.city}</p>
-              <p>Start time: {booking.start_time}</p>
-              <p>End time: {booking.end_time}</p>
-              <p>Total cost € : {booking.total_cost}</p>
-              <p>Booking status: {booking.booking_status}</p>
-              <button className="cancel_button" onClick={() => handleDelete(booking._id)}>Cancel</button>
-            </li>
-          ))}
-        </ul>
-      )}
+      <div className="booking-container">
+        {/* <h1>Hello user: {userId}</h1> */}
+
+        {bookings.length === 0 ? (
+          <p>You have no bookings yet.</p>
+        ) : (
+          <ul>
+            {bookings.map((booking) => (
+              <li key={booking._id}>
+                <p>Parking name: {offers[booking.spot_id]?.offerName}</p>
+                <p>Address: {offers[booking.spot_id]?.street}</p>
+                <p>City: {offers[booking.spot_id]?.city}</p>
+                <p>Start time: {booking.start_time}</p>
+                <p>End time: {booking.end_time}</p>
+                <p>Total cost € : {booking.total_cost}</p>
+                <p>Booking status: {booking.booking_status}</p>
+                <button
+                  className="cancel_button"
+                  onClick={() => handleDelete(booking._id)}
+                >
+                  Cancel
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+     
     </div>
-    </div>
+    <footer className="footer_bookings">
+      <Footer/>
+    </footer>
+    </wrapper>
   );
 };
 
