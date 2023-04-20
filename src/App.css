@@ -186,9 +186,13 @@ h1 {
 .social-media a {
   font-size: 30px;
   margin-right: 10px;
+  color: #525354;
 }
 
 .credits p {
   font-size: 20px;
   font-weight: bold;
+}
+.card-img-top {
+  max-width: 100%;
 }
