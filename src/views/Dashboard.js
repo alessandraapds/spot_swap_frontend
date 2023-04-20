@@ -106,10 +106,10 @@ const Dashboard = () => {
         </Col>
       </Row>
     </Container>
-    <footer className="footer_dashboard">
+    {/* <footer className="footer_dashboard">
       
         <Footer/>
-    </footer>
+    </footer> */}
     </wrapper>
   );
 };

@@ -102,9 +102,9 @@ const Bookings = () => {
       </div>
      
     </div>
-    <footer className="footer_bookings">
+    {/* <footer className="footer_bookings">
       <Footer/>
-    </footer>
+    </footer> */}
     </wrapper>
   );
 };

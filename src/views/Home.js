@@ -15,10 +15,10 @@ const Home = () => {
       <Navbar />
       <div className="Heading"><h1>Welcome Back {name}</h1></div>
       <Form />
-      <footer className="footer">
+      {/* <footer className="footer">
       <Footer/>
       
-      </footer>
+      </footer> */}
     </div>
     
   );
