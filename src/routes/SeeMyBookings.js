@@ -79,8 +79,8 @@ const Bookings = () => {
               <p>Parking name: {offers[booking.spot_id]?.offerName}</p>
               <p>Address: {offers[booking.spot_id]?.street}</p>
               <p>City: {offers[booking.spot_id]?.city}</p>
-              <p>Start time: {booking.start_time}</p>
-              <p>End time: {booking.end_time}</p>
+              <p>Start time: {new Date(booking.start_time).toUTCString()}</p>
+              <p>End time: {new Date(booking.end_time).toUTCString()}</p>
               <p>Total cost € : {booking.total_cost}</p>
               <p>Booking status: {booking.booking_status}</p>
               <button className="cancel_button" onClick={() => handleDelete(booking._id)}>Cancel</button>

@@ -2,6 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Navbar from "../components/NavBar";
 import useFetch from "../hooks/useFetch";
+import {
+  GeoAltFill,
+  CalendarDay,
+  CurrencyEuro,
+  ExclamationDiamondFill,
+  CashCoin,
+} from "react-bootstrap-icons";
 
 const Dashboard = () => {
   const name = sessionStorage.getItem("name");
@@ -62,8 +69,8 @@ const Dashboard = () => {
                 <Row>
                   <Col className="listedSpots">
                     <div>
-                      {offer.offerName} - {offer.street} - {offer.city}
-                      <p>List Price: €{offer.price}</p>
+                      <strong>{offer.offerName} - {offer.street} - {offer.city}</strong>
+                      <p> <CashCoin />List Price: €{offer.price}</p>
                       {offer.isAvailable ? (
                         <p style={{fontWeight: 'bold', color:"red"}}>Available</p>
                       ) : (
@@ -91,11 +98,13 @@ const Dashboard = () => {
                     <Col className="bookedSpots">
                       <div>
                         <h6>Booking ID:{booking._id} </h6>
-                        From: {booking.start_time}
+                        <CalendarDay /> <strong>From: </strong>
+                        {new Date(booking.start_time).toUTCString()}
                         <br />
-                        To: {booking.end_time}
+                        <CalendarDay /> <strong>To: </strong>
+                        {new Date(booking.end_time).toUTCString()}
                         <br />
-                        Cost: €{booking.total_cost}
+                        <CashCoin /> Cost: €{booking.total_cost}
                       </div>
                     </Col>
                   </Row>
