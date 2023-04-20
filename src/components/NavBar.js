@@ -30,6 +30,9 @@ const Navbar = () => {
               {/* <a class="nav-link" href="/offers">
                 See all parkings spots
               </a> */}
+              <a class="nav-link" href="/SeeMyBookings">
+                See my Bookings
+              </a>
               <a class="nav-link" href="/dashboard">
                 My Dashboard
               </a>
