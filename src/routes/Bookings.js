@@ -6,7 +6,6 @@ import { Spinner } from "react-bootstrap";
 
 // import Payment from "../components/Payment";
 
-
 const NewBooking = () => {
   const { id } = useParams();
   const { data, isLoading, error } = useFetch(
@@ -18,7 +17,7 @@ const NewBooking = () => {
   const userName = sessionStorage.getItem("userName");
 
   const navigate = useNavigate();
-  
+
   // const handleBookSpot = (id) => {
   //    console.log("Hello", id);
   //   // navigate("/Payment/" + id);
@@ -79,11 +78,10 @@ const NewBooking = () => {
         const update = await fetch(`http://localhost:8001/offers/${id}`, {
           method: "PUT",
           headers,
-          body: JSON.stringify({isAvailable: false})
+          body: JSON.stringify({ isAvailable: false }),
         });
         if (update.ok) {
-          setTimeout(() => {
-          }, 3000)
+          setTimeout(() => {}, 3000);
         }
 
         // inside here to do the put request
@@ -100,7 +98,7 @@ const NewBooking = () => {
       //     setError(null)
       //  }, 3000)
     } finally {
-      navigate("/SeeMyBookings");
+      navigate("/bookingconfirmation");
     }
 
     // navigate(`/payment/${id}`, { state: { userId } });
@@ -108,39 +106,36 @@ const NewBooking = () => {
 
   return (
     <div>
-    <div>
-      {/* <h1>Hello user: {userId}</h1> */}
-      {/* <h1>Hello user: {userName}</h1> */}
-      <h2 className="BookingDetails"> Booking Details</h2>
-      <div className="booking-container">
-        <p className="booking-detail">Parking name: {data.offerName}</p>
-        <p className="booking-detail">Address: {data.street}</p>
-        <p className="booking-detail">City: {data.city}</p>
-        <p className="booking-detail">Size: {data.offerSize}</p>
-        <p className="booking-detail">Parking Spot available:</p>
-        <p className="booking-detail">From : {data.availableFrom}</p>
-        <p className="booking-detail">Until : {data.availableUntil}</p>
-        <p className="booking-detail">Total Price €:{data.price}</p>
-        <p className="booking-detail">
-          {" "}
-          * Free cancellation up to 24 hours prior to arrival <br></br>
-          <br></br>
-        </p>{" "}
-        <button className="book-button" onClick={handleBookSpot}>
-          Book this spot
-        </button>
+      <div>
+        {/* <h1>Hello user: {userId}</h1> */}
+        {/* <h1>Hello user: {userName}</h1> */}
+        <h2 className="BookingDetails"> Booking Details</h2>
+        <div className="booking-container">
+          <p className="booking-detail">Parking name: {data.offerName}</p>
+          <p className="booking-detail">Address: {data.street}</p>
+          <p className="booking-detail">City: {data.city}</p>
+          <p className="booking-detail">Size: {data.offerSize}</p>
+          <p className="booking-detail">Parking Spot available:</p>
+          <p className="booking-detail">From : {data.availableFrom}</p>
+          <p className="booking-detail">Until : {data.availableUntil}</p>
+          <p className="booking-detail">Total Price €:{data.price}</p>
+          <p className="booking-detail">
+            {" "}
+            * Free cancellation up to 24 hours prior to arrival <br></br>
+            <br></br>
+          </p>{" "}
+          <button className="book-button" onClick={handleBookSpot}>
+            Book this spot
+          </button>
+        </div>
       </div>
-     
-    </div>
-    <footer className="footer">
-      <Footer/>
+      <footer className="footer">
+        <Footer />
         {/* <p className="mb-0">Connect with us:</p>
       <p className="mt-3 mb-0">Created by Allessandra , Emma and Luis </p> */}
       </footer>
     </div>
-    
   );
 };
 
 export default NewBooking;
-
