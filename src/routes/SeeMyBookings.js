@@ -13,7 +13,7 @@ const Bookings = () => {
     data: offerData,
     isLoading: offerIsLoading,
     error: offerError,
-  } = useFetch(`http://localhost:8001/offers`);
+  } = useFetch(`http://localhost:8001/offers/alloffers`);
   const [bookings, setBookings] = useState([]);
   const [offers, setOffers] = useState({});
   const userId = sessionStorage.getItem("userId");
@@ -67,44 +67,43 @@ const Bookings = () => {
   }
 
   return (
-   <wrapper>
-    <div>
-      <div className="BookingDetails">
-        <h1>See your bookings</h1>
-        <div></div>
-      </div>
-      <div className="booking-container">
-        {/* <h1>Hello user: {userId}</h1> */}
+    <wrapper>
+      <div>
+        <div className="BookingDetails">
+          <h1>See your bookings</h1>
+          <div></div>
+        </div>
+        <div className="booking-container">
+          {/* <h1>Hello user: {userId}</h1> */}
 
-        {bookings.length === 0 ? (
-          <p>You have no bookings yet.</p>
-        ) : (
-          <ul>
-            {bookings.map((booking) => (
-              <li key={booking._id}>
-                <p>Parking name: {offers[booking.spot_id]?.offerName}</p>
-                <p>Address: {offers[booking.spot_id]?.street}</p>
-                <p>City: {offers[booking.spot_id]?.city}</p>
-                <p>Start time: {booking.start_time}</p>
-                <p>End time: {booking.end_time}</p>
-                <p>Total cost € : {booking.total_cost}</p>
-                <p>Booking status: {booking.booking_status}</p>
-                <button
-                  className="cancel_button"
-                  onClick={() => handleDelete(booking._id)}
-                >
-                  Cancel
-                </button>
-              </li>
-            ))}
-          </ul>
-        )}
+          {bookings.length === 0 ? (
+            <p>You have no bookings yet.</p>
+          ) : (
+            <ul>
+              {bookings.map((booking) => (
+                <li key={booking._id}>
+                  <p>Parking name: {offers[booking.spot_id]?.offerName}</p>
+                  <p>Address: {offers[booking.spot_id]?.street}</p>
+                  <p>City: {offers[booking.spot_id]?.city}</p>
+                  <p>Start time: {booking.start_time}</p>
+                  <p>End time: {booking.end_time}</p>
+                  <p>Total cost € : {booking.total_cost}</p>
+                  <p>Booking status: {booking.booking_status}</p>
+                  <button
+                    className="cancel_button"
+                    onClick={() => handleDelete(booking._id)}
+                  >
+                    Cancel
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
-     
-    </div>
-    <footer className="footer_bookings">
-      <Footer/>
-    </footer>
+      <footer className="footer_bookings">
+        <Footer />
+      </footer>
     </wrapper>
   );
 };
