@@ -8,6 +8,13 @@
   background-image: url("/src/styles/parkedcars.jpg");
   /* background-size: contain; */
   background-size: cover;
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+  }
+  @media (max-width: 400px) {
+    font-size: 12px;
+  }
 }
 
 .search-input {
@@ -16,6 +23,13 @@
   margin: 15px;
   border-radius: 3px;
   border: 3px solid #1a244f;
+
+  @media (max-width: 767px) {
+    width: 400px;
+  }
+  @media (max-width: 400px) {
+    width: 300px;
+  }
 }
 
 .search-button {
@@ -38,6 +52,15 @@
   text-align: center;
   background-color: rgba(240, 248, 76, 0.6);
   border-radius: 25px;
+
+  @media (max-width: 767px) {
+    text-align: center;
+    font-size: 12px;
+  }
+  @media (max-width: 400px) {
+    text-align: center;
+    font-size: 10px;
+  }
 }
 
 .offer-list:hover {
@@ -51,6 +74,13 @@
   border: 1px solid green;
   border-radius: 10px;
   font-style: italic;
+
+  @media (max-width: 767px) {
+    font-size: 12px;
+  }
+  @media (max-width: 400px) {
+    font-size: 10px;
+  }
 }
 
 .booking-button:hover {
@@ -64,6 +94,15 @@
   width: 250px;
   height: 200px;
   border: 1px solid grey;
+
+  @media (max-width: 767px) {
+    width: 150px;
+    height: 100px;
+  }
+  @media (max-width: 400px) {
+    width: 100px;
+    height: 50px;
+  }
 }
 
 .register-form {
@@ -103,4 +142,15 @@
   color: green;
   font-weight: bold;
   font-size: 20px;
+}
+
+.no-matches {
+  /* display: flex; */
+  text-align: center;
+  justify-content: center;
+  margin-top: 50px;
+  color: red;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 30px 30px;
 }
