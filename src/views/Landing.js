@@ -3,6 +3,7 @@ import LandingNavbar from "../components/LandingNavBar";
 import Form from "../components/Form";
 import Login from "./Login";
 import Signup from "./Signup";
+import Footer from "../components/Footer";
 
 const Landingpage = () => {
   return (
@@ -82,8 +83,9 @@ const Landingpage = () => {
         </div>
       </div>
       <footer className="footer">
-        <p className="mb-0">Connect with us:</p>
-      <p className="mt-3 mb-0">Created by Allessandra , Emma and Luis </p>
+        <Footer/>
+        {/* <p className="mb-0">Connect with us:</p>
+      <p className="mt-3 mb-0">Created by Allessandra , Emma and Luis </p> */}
       </footer>
     </div>
   );

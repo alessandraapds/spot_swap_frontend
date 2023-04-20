@@ -5,7 +5,7 @@
   /* position: fixed; */
   bottom: 0;
   width: 100%;
-  background-color: #02030034;
+  background-color: #0a0a0a34;
   color: #0f1012;
   padding: 20px;
   text-align: center;
@@ -169,4 +169,26 @@ h1 {
   text-align: center;
   background-color: rgba(240, 248, 76, 0.6);
   border-radius: 25px;
+}
+.footer {
+ justify-content: space-between;
+  align-items: center;
+  background-color: #dbdada;
+  padding: 20px;
+  align-items: center;
+}
+
+.contact-info p:first-of-type {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.social-media a {
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+.credits p {
+  font-size: 20px;
+  font-weight: bold;
 }
