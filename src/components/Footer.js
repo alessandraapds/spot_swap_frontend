@@ -27,7 +27,7 @@ const Footer = () => {
       <div className="credits">
         <p>Created by Alessandra, Emma, and Luis</p>
       </div>
-      <p>&copy; {currentYear} Your Company Name. All Rights Reserved.</p>
+      <p>&copy; {currentYear} SpotSwap. All Rights Reserved.</p>
     </footer>
   );
 };
