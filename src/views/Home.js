@@ -9,7 +9,6 @@ const Home = () => {
   const navigate = useNavigate()
   return (
     <div>
-      {!token ? navigate("/") : null}
       <Navbar />
       <div className="Heading"><h1>Welcome Back {name}</h1></div>
       <Form />

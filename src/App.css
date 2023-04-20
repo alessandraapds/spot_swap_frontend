@@ -3,11 +3,11 @@
   background-image: url("/public/images/logo1.png");
 }
 .footer {
-  position: fixed;
+  /* position: fixed; */
   bottom: 0;
   width: 100%;
-  background-color: #13160f34;
-  color: #a6b4c3;
+  background-color: #0a0a0a34;
+  color: #0f1012;
   padding: 20px;
   text-align: center;
   box-sizing: border-box;
@@ -157,7 +157,7 @@ h1 {
 .BookingDetails {
   padding: 50px 50px;
   text-align: center;
-  background-color: darkblue;
+  background-color: #1a244f;
   color: white;
   border-top: 2px solid black;
   border-bottom: 2px solid black;
@@ -168,4 +168,47 @@ h1 {
   text-align: center;
   background-color: rgba(240, 248, 76, 0.6);
   border-radius: 25px;
+}
+.footer {
+  justify-content: space-between;
+  align-items: center;
+  background-color: #dbdada;
+  padding: 20px;
+  align-items: center;
+  color: hsl(210, 1%, 33%);
+}
+
+.contact-info p:first-of-type {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.social-media a {
+  font-size: 30px;
+  margin-right: 10px;
+  color: hsl(210, 1%, 33%);
+}
+
+.credits p {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.customModal {
+  background: #1d264ee5 !important;
+  color: #fff !important;
+  border-radius: 10px!important;
+}
+.signUpButton {
+  border-radius: 5px;
+}
+.loginButton {
+  border-radius: 5px;
+}
+label {
+  margin-right: 10px;
+}
+img {
+  min-width: 100%;
+
 }

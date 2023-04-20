@@ -3,6 +3,7 @@ import LandingNavbar from "../components/LandingNavBar";
 import Form from "../components/Form";
 import Login from "./Login";
 import Signup from "./Signup";
+import Footer from "../components/Footer";
 
 const Landingpage = () => {
   return (
@@ -47,21 +48,22 @@ const Landingpage = () => {
                 </div>
               </div>
             </div>
-            <div className="col-1 col-md-6 col-lg-4">
+            <div className="col-12 col-md-6 col-lg-4">
               <div className="card">
                 <img
                   src="images/duesseldorf.jpeg"
-                  alt="streets of Dortmund"
+                  alt="duesseldorf"
                   className="card-img-top"
                 />
                 <div className="card-body">
-                  <h5 className="card-title">Duesseldorf</h5>
+                  <h5 className="card-title"> Duesseldorf </h5>
                   <p className="card-text">
-                    "Nähe trifft Freiheit" meaning “Live close feel free”.
+                  "Nähe trifft Freiheit" meaning “Live close feel free”.
                   </p>
                 </div>
               </div>
             </div>
+
             <div className="col-12 col-md-6 col-lg-4">
               <div className="card">
                 <img
@@ -82,8 +84,9 @@ const Landingpage = () => {
         </div>
       </div>
       <footer className="footer">
-        <p className="mb-0">Connect with us:</p>
-      <p className="mt-3 mb-0">Created by Allessandra , Emma und Luis </p>
+      <Footer/>
+        {/* <p className="mb-0">Connect with us:</p>
+      <p className="mt-3 mb-0">Created by Allessandra , Emma and Luis </p> */}
       </footer>
     </div>
   );

@@ -64,9 +64,10 @@ const Bookings = () => {
   return (
     <div>
       <div className="BookingDetails">
-      <h1>See your bookings below:</h1>
+          <h1>See your bookings</h1>
+      <div></div>
       </div>
-    <div className="booking-container">
+           <div className="booking-container">
       {/* <h1>Hello user: {userId}</h1> */}
       
       {bookings.length === 0 ? (
