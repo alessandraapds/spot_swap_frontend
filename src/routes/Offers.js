@@ -159,9 +159,10 @@ const Offers = ({ keyword, myRef }) => {
             <ExclamationDiamondFill />
             No matches found! Please performe a new search.
           </h4>
-          <button class="btn btn-warning" onClick={showNewSearch}>
-            <strong>New search</strong>
-          </button>
+//           <button class="btn btn-warning" onClick={showNewSearch}>
+//             <strong>New search</strong>
+//           </button>
+          <h6>Please performe a new search</h6>
 
         </div>
       )}
