@@ -18,7 +18,7 @@ const Bookings = () => {
     data: offerData,
     isLoading: offerIsLoading,
     error: offerError,
-  } = useFetch(`https://spot-swap-backend-02.onrender.com/alloffers`);
+  } = useFetch(`https://spot-swap-backend-02.onrender.com/offers/alloffers`);
   const [bookings, setBookings] = useState([]);
   const [offers, setOffers] = useState({});
   const userId = sessionStorage.getItem("userId");
@@ -50,7 +50,7 @@ const Bookings = () => {
     try {
       
       const response = await fetch(
-        `https://spot-swap-backend-02.onrender.com/${bookingId}`,
+        `https://spot-swap-backend-02.onrender.com/booking/${bookingId}`,
         {
           method: "DELETE",
         }
@@ -65,7 +65,7 @@ const Bookings = () => {
         const id = booking[0].spot_id;
         const headers = { "Content-Type": "application/json" };
         const update = await fetch(
-          `https://spot-swap-backend-02.onrender.com/${id}`,
+          `https://spot-swap-backend-02.onrender.com/offers/${id}`,
           {
             method: "PUT",
             headers,
