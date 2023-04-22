@@ -8,16 +8,17 @@ const Navbar = () => {
        <nav>
           <ul className="navbar">
             <div className="navbar-links">
-              <NavLink to='/home'>Home</NavLink>
-              <NavLink to='/registeryouroffer'>Offer A Parking Spot</NavLink>
-              <NavLink to='/SeeMyBookings'>See My Bookings</NavLink>
-              <NavLink to='/dashboard'>My Dashboard</NavLink>
+              SpotSwap
+              <NavLink  className='link' to='/home'>Home</NavLink>
+              <NavLink className='link' to='/registeryouroffer'>Offer A Parking Spot</NavLink>
+              <NavLink className='link' to='/SeeMyBookings'>See My Bookings</NavLink>
+              <NavLink className='link' to='/dashboard'>My Dashboard</NavLink>
   
             </div>
           </ul>
         </nav>
 
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      {/* <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           SpotSwap
           <button
@@ -43,7 +44,7 @@ const Navbar = () => {
                 See all parkings spots
               </a> */}
 
-              <a class="nav-link" href="/SeeMyBookings">
+              {/* <a class="nav-link" href="/SeeMyBookings">
                 See my Bookings
               </a>
               <a class="nav-link" href="/dashboard">
@@ -52,7 +53,7 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-      </nav>
+      </nav> */} 
 
       <Outlet />
     </div>

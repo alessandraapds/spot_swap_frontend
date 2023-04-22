@@ -247,3 +247,23 @@ img {
   min-width: 100%;
 
 }
+.navbar {
+  background-color: #f6f3f3df;
+  margin: 5px;
+}
+.navbar-links {
+ list-style-type: none;
+ margin: 5px;
+ padding: 0;
+ text-align: center;
+}
+.link {
+  margin: 5px;
+  padding: 5px;
+  text-decoration: none;
+  color: #232323;
+}
+.link:hover{
+  color:#050900;
+  font-weight: 600;
+}
