@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import React, { useState, useEffect } from "react";
+import { Col, Container, Row } from "react-bootstrap";
 import Navbar from "../components/NavBar";
 import useFetch from "../hooks/useFetch";
 import Footer from '../components/Footer';
 import {
   CalendarDay,
   CashCoin,
+  GeoAltFill
 } from "react-bootstrap-icons";
 
 const Dashboard = () => {
@@ -17,7 +18,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchOffers = async () => {
       try {
-        const response = await fetch(api_url + 'offers/alloffers');
+        const response = await fetch(api_url + "offers/alloffers");
         const data = await response.json();
         setOffers(data);
       } catch (error) {
@@ -27,7 +28,7 @@ const Dashboard = () => {
 
     const fetchBookings = async () => {
       try {
-        const response = await fetch(api_url + 'booking');
+        const response = await fetch(api_url + "booking");
         const data = await response.json();
         setBookings(data);
       } catch (error) {
@@ -39,9 +40,9 @@ const Dashboard = () => {
     fetchBookings();
   }, []);
 
-  const userId = sessionStorage.getItem("userId")
-  const userOffers = offers.filter((offer) => offer.userId === userId );
-  
+  const userId = sessionStorage.getItem("userId");
+  const userOffers = offers.filter((offer) => offer.userId === userId);
+
   const bookedSpots = userOffers.filter((offer) => {
     const isBooked = bookings.some((booking) => booking.spot_id === offer._id);
     return isBooked;
@@ -68,8 +69,8 @@ const Dashboard = () => {
                 <Row>
                   <Col className="listedSpots">
                     <div>
-                      <strong>{offer.offerName} - {offer.street} - {offer.city}</strong>
-                      <p> <CashCoin />List Price: €{offer.price}</p>
+                      <GeoAltFill /> <strong>{offer.offerName} - {offer.street} - {offer.city}</strong>
+                      <p> <CashCoin /> List Price: €{offer.price}</p>
                       {offer.isAvailable ? (
                         <p style={{fontWeight: 'bold', color:"red"}}>Available</p>
                       ) : (

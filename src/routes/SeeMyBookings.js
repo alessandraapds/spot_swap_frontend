@@ -3,9 +3,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import Footer from "../components/Footer";
 import {
+  GeoAltFill,
   CalendarDay,
+  CurrencyEuro,
+  ExclamationDiamondFill,
   CashCoin,
 } from "react-bootstrap-icons";
+import "../styles/styles.css";
 
 const Bookings = () => {
   const {
@@ -71,38 +75,65 @@ const Bookings = () => {
   }
 
   return (
-   <wrapper>
-    <div>
-      <div className="BookingDetails">
-        <h1>See Your Bookings</h1>
-        <div></div>
-      </div>
-           <div className="booking-container">
-      {/* <h1>Hello user: {userId}</h1> */}
-      
-      {bookings.length === 0 ? (
-        <p>You have no bookings yet.</p>
-      ) : (
-        <div>
-          {bookings.map((booking) => (
-            <div className="booking" key={booking._id}>
-              <p>Parking name: {offers[booking.spot_id]?.offerName}</p>
-              <p>Address: {offers[booking.spot_id]?.street}</p>
-              <p>City: {offers[booking.spot_id]?.city}</p>
-              <p><CalendarDay /><strong> Start Time: </strong> {new Date(booking.start_time).toUTCString()}</p>
-              <p><CalendarDay /><strong> End Time: </strong> {new Date(booking.end_time).toUTCString()}</p>
-              <p><CashCoin /> Total cost: €  {booking.total_cost}</p>
-              <p>Booking status: {booking.booking_status}</p>
-              <button className="cancel_button" onClick={() => handleDelete(booking._id)}>Cancel</button>
-            </div>
-          ))}
+    <wrapper>
+      <div>
+        <div className="BookingDetails">
+          <h1>See your bookings</h1>
+          <div></div>
         </div>
-      )}
-    </div>
-    </div>
-    <footer className="footer">
-      <Footer/>
-    </footer>
+        <div className="booking-container">
+          {/* <h1>Hello user: {userId}</h1> */}
+
+          {bookings.length === 0 ? (
+            <p>You have no bookings yet.</p>
+          ) : (
+            <ul>
+              {bookings.map((booking) => (
+                <li key={booking._id}>
+                  <p>
+                    <em>
+                      <strong>{offers[booking.spot_id]?.offerName}</strong>
+                    </em>
+                  </p>
+                  {/* <p>Address: {offers[booking.spot_id]?.street}</p>
+                  <p>City: {offers[booking.spot_id]?.city}</p> */}
+                  <p>
+                    <GeoAltFill /> {offers[booking.spot_id]?.street} -{" "}
+                    {offers[booking.spot_id]?.city},{" "}
+                    {offers[booking.spot_id]?.country}
+                  </p>
+                  <p>
+                    <CalendarDay />
+                    <strong>Available from:</strong>
+                    {new Date(booking.start_time).toUTCString()}
+                  </p>
+                  <p>
+                    <CalendarDay />
+                    <strong>Available until:</strong>
+                    {new Date(booking.end_time).toUTCString()}
+                  </p>
+                  <p>
+                    <CashCoin />
+                    Total cost € : {booking.total_cost}
+                  </p>
+                  <p>
+                    <strong>Booking status:</strong> {booking.booking_status}
+                  </p>
+                  <button
+                    className="cancel_button"
+                    onClick={() => handleDelete(booking._id)}
+                  >
+                    Cancel
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
+      <footer className="footer">
+        <Footer />
+      </footer>
     </wrapper>
   );
 };
