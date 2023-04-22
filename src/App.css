@@ -232,7 +232,7 @@ h1 {
 .customModal {
   background: #1d264ee5 !important;
   color: #fff !important;
-  border-radius: 10px!important;
+  border-radius: 10px !important;
 }
 .signUpButton {
   border-radius: 5px;
@@ -245,5 +245,8 @@ label {
 }
 img {
   min-width: 100%;
+}
 
+.li {
+  list-style: none;
 }

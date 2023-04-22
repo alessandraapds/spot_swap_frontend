@@ -33,11 +33,11 @@ const Offers = ({ keyword, myRef }) => {
 
   return (
     <div
-    // ref={myRef}
-    // style={{
-    //   backgroundImage: `url(${Background})`,
-    //   width: "100%",
-    // }}
+      ref={myRef}
+      // style={{
+      //   backgroundImage: `url(${Background})`,
+      //   width: "100%",
+      // }}
     >
       {/* <h4>All available spots</h4> */}
       {isLoading ? (
@@ -164,9 +164,7 @@ const Offers = ({ keyword, myRef }) => {
           </button>
         </div>
       )}
-    
     </div>
-    
   );
 };
 

@@ -16,6 +16,7 @@ import OfferConfirmation from "./routes/OfferConfirmation";
 import SeeMyBookings from "./routes/SeeMyBookings";
 import PageNotFound from "./components/PageNotFound";
 import Background from "../src/styles/logo1.png";
+import BookingConfirmation from "./routes/BookingConfirmation";
 
 function App() {
   const token = sessionStorage.getItem("jwt");
@@ -32,6 +33,10 @@ function App() {
           <Route path="/offers" element={<Offers />} />
           <Route path="/payment/:id" element={<Payment />} />
           <Route path="/bookings/:id" element={<Bookings />} />
+          <Route
+            path="/bookingconfirmation"
+            element={<BookingConfirmation />}
+          />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/SeeMyBookings" element={<SeeMyBookings />} />
           <Route path="*" element={<PageNotFound />} />
