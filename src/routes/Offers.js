@@ -157,12 +157,10 @@ const Offers = ({ keyword, myRef }) => {
         <div class="no-matches" ref={myRef}>
           <h4>
             <ExclamationDiamondFill />
-            No matches found! Please performe a new search.
+            No matches found!
           </h4>
-//           <button class="btn btn-warning" onClick={showNewSearch}>
-//             <strong>New search</strong>
-//           </button>
-          <h6>Please performe a new search</h6>
+
+          <h6>Please performe a new search!</h6>
 
         </div>
       )}
