@@ -1,10 +1,22 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet,  NavLink} from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 
 const Navbar = () => {
   return (
     <div>
+       <nav>
+          <ul className="navbar">
+            <div className="navbar-links">
+              <NavLink to='/home'>Home</NavLink>
+              <NavLink to='/registeryouroffer'>Offer A Parking Spot</NavLink>
+              <NavLink to='/SeeMyBookings'>See My Bookings</NavLink>
+              <NavLink to='/dashboard'>My Dashboard</NavLink>
+  
+            </div>
+          </ul>
+        </nav>
+
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
           SpotSwap
