@@ -28,7 +28,7 @@ const Offers = ({ keyword, myRef }) => {
   };
 
   const showNewSearch = () => {
-    window.location.reload(false);
+    window.location.reload();
   };
 
   return (
