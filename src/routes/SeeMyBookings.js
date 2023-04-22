@@ -12,6 +12,8 @@ import {
 import "../styles/styles.css";
 
 const Bookings = () => {
+  const { id } = useParams();
+  console.log(id, "testing id");
   const {
     data: bookingData,
     isLoading: bookingIsLoading,
@@ -26,6 +28,8 @@ const Bookings = () => {
   const [offers, setOffers] = useState({});
   const userId = sessionStorage.getItem("userId");
   const navigate = useNavigate();
+
+  const headers = { "Content-Type": "application/json" };
 
   useEffect(() => {
     if (bookingData && offerData) {
@@ -43,18 +47,33 @@ const Bookings = () => {
 
   const handleDelete = async (bookingId) => {
     try {
-      const response = await fetch(
-        `http://localhost:8001/booking/${bookingId}`,
-        {
-          method: "DELETE",
-        }
-      );
-      if (response.ok) {
+      const update = await fetch(`http://localhost:8001/offers/${id}`, {
+        method: "PUT",
+        headers,
+        body: JSON.stringify({ isAvailable: true }),
+      });
+      if (update.ok) {
+        setTimeout(() => {}, 3000);
+
+        const response = await fetch(
+          `http://localhost:8001/booking/${bookingId}`,
+          {
+            method: "DELETE",
+          }
+        );
         const updatedBookings = bookings.filter(
           (booking) => booking._id !== bookingId
         );
         setBookings(updatedBookings);
-      } else {
+      }
+
+      // if (response.ok) {
+      //   // inside here to do the put request
+      //   // setSuccess(true)
+      //   // setTimeout(() => {
+      //   // })
+      // }
+      else {
         throw new Error("Failed to delete booking.");
       }
     } catch (error) {
