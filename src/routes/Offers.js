@@ -27,9 +27,9 @@ const Offers = ({ keyword, myRef }) => {
     // navigate("/Payment/" + id);
   };
 
-//   const showNewSearch = () => {
-//     window.location.reload(false);
-//   };
+  const showNewSearch = () => {
+    window.location.reload(false);
+  };
 
   return (
     <div
@@ -159,9 +159,9 @@ const Offers = ({ keyword, myRef }) => {
             <ExclamationDiamondFill />
             No matches found! Please performe a new search.
           </h4>
-//           <button class="btn btn-warning" onClick={showNewSearch}>
-//             <strong>New search</strong>
-//           </button>
+          <button class="btn btn-warning" onClick={showNewSearch}>
+            <strong>New search</strong>
+          </button>
 
         </div>
       )}
