@@ -2,11 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Navbar from "../components/NavBar";
 import useFetch from "../hooks/useFetch";
+import Footer from '../components/Footer';
 import {
-  GeoAltFill,
   CalendarDay,
-  CurrencyEuro,
-  ExclamationDiamondFill,
   CashCoin,
 } from "react-bootstrap-icons";
 
@@ -54,6 +52,7 @@ const Dashboard = () => {
   }, 0);
 
   return (
+    <wrapper>
     <Container fluid>
       <Row>
         <Col className="Heading"><h1>Welcome to your dashboard {name}</h1></Col>
@@ -98,10 +97,10 @@ const Dashboard = () => {
                     <Col className="bookedSpots">
                       <div>
                         <h6>Booking ID:{booking._id} </h6>
-                        <CalendarDay /> <strong>From: </strong>
+                        <CalendarDay /> <strong> From: </strong>
                         {new Date(booking.start_time).toUTCString()}
                         <br />
-                        <CalendarDay /> <strong>To: </strong>
+                        <CalendarDay /> <strong> To: </strong>
                         {new Date(booking.end_time).toUTCString()}
                         <br />
                         <CashCoin /> Cost: €{booking.total_cost}
@@ -114,6 +113,11 @@ const Dashboard = () => {
         </Col>
       </Row>
     </Container>
+    <footer className="footer">
+      
+        <Footer/>
+    </footer>
+    </wrapper>
   );
 };
 

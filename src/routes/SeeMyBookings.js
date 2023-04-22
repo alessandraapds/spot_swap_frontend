@@ -1,7 +1,11 @@
-
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
+import Footer from "../components/Footer";
+import {
+  CalendarDay,
+  CashCoin,
+} from "react-bootstrap-icons";
 
 const Bookings = () => {
   const {
@@ -13,7 +17,7 @@ const Bookings = () => {
     data: offerData,
     isLoading: offerIsLoading,
     error: offerError,
-  } = useFetch(`http://localhost:8001/offers`);
+  } = useFetch(`http://localhost:8001/offers/alloffers`);
   const [bookings, setBookings] = useState([]);
   const [offers, setOffers] = useState({});
   const userId = sessionStorage.getItem("userId");
@@ -35,14 +39,19 @@ const Bookings = () => {
 
   const handleDelete = async (bookingId) => {
     try {
-      const response = await fetch(`http://localhost:8001/booking/${bookingId}`, {
-        method: 'DELETE',
-      });
+      const response = await fetch(
+        `http://localhost:8001/booking/${bookingId}`,
+        {
+          method: "DELETE",
+        }
+      );
       if (response.ok) {
-        const updatedBookings = bookings.filter(booking => booking._id !== bookingId);
+        const updatedBookings = bookings.filter(
+          (booking) => booking._id !== bookingId
+        );
         setBookings(updatedBookings);
       } else {
-        throw new Error('Failed to delete booking.');
+        throw new Error("Failed to delete booking.");
       }
     } catch (error) {
       console.error(error);
@@ -62,10 +71,11 @@ const Bookings = () => {
   }
 
   return (
+   <wrapper>
     <div>
       <div className="BookingDetails">
-          <h1>See your bookings</h1>
-      <div></div>
+        <h1>See Your Bookings</h1>
+        <div></div>
       </div>
            <div className="booking-container">
       {/* <h1>Hello user: {userId}</h1> */}
@@ -73,23 +83,27 @@ const Bookings = () => {
       {bookings.length === 0 ? (
         <p>You have no bookings yet.</p>
       ) : (
-        <ul>
+        <div>
           {bookings.map((booking) => (
-            <li key={booking._id}>
+            <div className="booking" key={booking._id}>
               <p>Parking name: {offers[booking.spot_id]?.offerName}</p>
               <p>Address: {offers[booking.spot_id]?.street}</p>
               <p>City: {offers[booking.spot_id]?.city}</p>
-              <p>Start time: {new Date(booking.start_time).toUTCString()}</p>
-              <p>End time: {new Date(booking.end_time).toUTCString()}</p>
-              <p>Total cost € : {booking.total_cost}</p>
+              <p><CalendarDay /><strong> Start Time: </strong> {new Date(booking.start_time).toUTCString()}</p>
+              <p><CalendarDay /><strong> End Time: </strong> {new Date(booking.end_time).toUTCString()}</p>
+              <p><CashCoin /> Total cost: €  {booking.total_cost}</p>
               <p>Booking status: {booking.booking_status}</p>
               <button className="cancel_button" onClick={() => handleDelete(booking._id)}>Cancel</button>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       )}
     </div>
     </div>
+    <footer className="footer">
+      <Footer/>
+    </footer>
+    </wrapper>
   );
 };
 

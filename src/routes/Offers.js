@@ -1,6 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import useFetch from "../hooks/useFetch";
 import "../styles/styles.css";
+
+import footer from "../components/Footer";
+
 import {
   GeoAltFill,
   CalendarDay,
@@ -10,6 +13,7 @@ import {
 } from "react-bootstrap-icons";
 import Maps from "../components/Maps";
 import { useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
 import Background from "../styles/logo1.png";
 
 const Offers = ({ keyword, myRef }) => {
@@ -160,7 +164,9 @@ const Offers = ({ keyword, myRef }) => {
           </button>
         </div>
       )}
+    
     </div>
+    
   );
 };
 

@@ -154,6 +154,13 @@ h1 {
   margin: 1.5rem;
   background-color: #ffd900ab;
 }
+.booking {
+  border-radius: 10px;
+  border:#0f1012 solid 1px;
+  margin: 1.5rem;
+  background-color: #ffd900ab;
+  text-align: center;
+}
 .BookingDetails {
   padding: 50px 50px;
   text-align: center;
@@ -163,19 +170,21 @@ h1 {
   border-bottom: 2px solid black;
 }
 
-.booking-container {
+/* .booking-container {
   margin: 30px;
   text-align: center;
-  background-color: rgba(240, 248, 76, 0.6);
+  background-color: #ffd900ab;
   border-radius: 25px;
-}
+} */
 .footer {
+  /* flex: auto; */
   justify-content: space-between;
   align-items: center;
   background-color: #dbdada;
-  padding: 20px;
+  padding: 10px;
   align-items: center;
   color: hsl(210, 1%, 33%);
+  margin-top: auto;
 }
 
 .contact-info p:first-of-type {
@@ -193,6 +202,39 @@ h1 {
   font-size: 20px;
   font-weight: bold;
 }
+.wrapper {
+  /* display: flex; */
+  flex-direction: column;
+  min-height: 100vh;
+}
+.footer_bookings {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #dbdada;
+  padding: 10px;
+  align-items: center;
+  color: hsl(210, 1%, 33%);
+  margin-top: auto;
+  text-align: center;
+}
+.footer_dashboard {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #dbdada;
+  padding: 10px;
+  align-items: center;
+  color: hsl(210, 1%, 33%);
+  margin-top: auto;
+  text-align: center;
+}
 
 .customModal {
   background: #1d264ee5 !important;
@@ -207,8 +249,4 @@ h1 {
 }
 label {
   margin-right: 10px;
-}
-img {
-  min-width: 100%;
-
 }
