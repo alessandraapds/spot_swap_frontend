@@ -48,6 +48,7 @@ const Bookings = () => {
         {
           method: "DELETE",
         }
+
       );
       if (response.ok) {
         const updatedBookings = bookings.filter(
