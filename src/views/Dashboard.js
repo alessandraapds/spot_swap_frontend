@@ -2,13 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Navbar from "../components/NavBar";
 import useFetch from "../hooks/useFetch";
-import Footer from "../components/Footer";
+import Footer from '../components/Footer';
 import {
-  GeoAltFill,
   CalendarDay,
-  CurrencyEuro,
-  ExclamationDiamondFill,
   CashCoin,
+  GeoAltFill
 } from "react-bootstrap-icons";
 
 const Dashboard = () => {
@@ -56,81 +54,70 @@ const Dashboard = () => {
 
   return (
     <wrapper>
-      <Container fluid>
-        <Row>
-          <Col className="Heading">
-            <h1>Welcome to your dashboard {name}</h1>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <h2>My Listed Spots</h2>
-            {offers.length === 0 ? (
-              <p>Loading...</p>
-            ) : (
-              userOffers.map((offer) => (
-                <Container key={offer._id}>
+    <Container fluid>
+      <Row>
+        <Col className="Heading"><h1>Welcome to your dashboard {name}</h1></Col>
+      </Row>
+      <Row>
+        <Col>
+          <h2>My Listed Spots</h2>
+          {offers.length === 0 ? (
+            <p>Loading...</p>
+          ) : (
+            userOffers.map((offer) => (
+              <Container key={offer._id}>
+                <Row>
+                  <Col className="listedSpots">
+                    <div>
+                      <GeoAltFill /> <strong>{offer.offerName} - {offer.street} - {offer.city}</strong>
+                      <p> <CashCoin /> List Price: €{offer.price}</p>
+                      {offer.isAvailable ? (
+                        <p style={{fontWeight: 'bold', color:"red"}}>Available</p>
+                      ) : (
+                        <p style={{fontWeight: 'bold', color:"green"}}>Booked</p>
+                      )}
+                    </div>
+                  </Col>
+                </Row>
+              </Container>
+            ))
+          )}
+          <p>Total Earnings: €{totalIncome}</p>
+        </Col>
+
+        <Col>
+          <h2>My Bookings</h2>
+          {bookings.length === 0 ? (
+            <p>Loading...</p>
+          ) : (
+            bookings
+              .filter((booking) => booking.user_id === userId)
+              .map((booking) => (
+                <Container key={booking._id}>
                   <Row>
-                    <Col className="listedSpots">
+                    <Col className="bookedSpots">
                       <div>
-                        {offer.offerName} - {offer.street} - {offer.city}
-                        <p>
-                          <CashCoin /> <strong>List Price:</strong> €
-                          {offer.price}
-                        </p>
-                        {offer.isAvailable ? (
-                          <p style={{ fontWeight: "bold", color: "red" }}>
-                            Available
-                          </p>
-                        ) : (
-                          <p style={{ fontWeight: "bold", color: "green" }}>
-                            Booked
-                          </p>
-                        )}
+                        <h6>Booking ID:{booking._id} </h6>
+                        <CalendarDay /> <strong> From: </strong>
+                        {new Date(booking.start_time).toUTCString()}
+                        <br />
+                        <CalendarDay /> <strong> To: </strong>
+                        {new Date(booking.end_time).toUTCString()}
+                        <br />
+                        <CashCoin /> Cost: €{booking.total_cost}
                       </div>
                     </Col>
                   </Row>
                 </Container>
               ))
-            )}
-            <p>Total Earnings: €{totalIncome}</p>
-          </Col>
-
-          <Col>
-            <h2>My Bookings</h2>
-            {bookings.length === 0 ? (
-              <p>Loading...</p>
-            ) : (
-              bookings
-                .filter((booking) => booking.user_id === userId)
-                .map((booking) => (
-                  <Container key={booking._id}>
-                    <Row>
-                      <Col className="bookedSpots">
-                        <div>
-                          <h6>Booking ID:{booking._id} </h6>
-                          <CalendarDay />
-                          <strong> Available from: </strong>
-                          {new Date(booking.start_time).toUTCString()}
-                          <br />
-                          <CalendarDay />
-                          <strong> Available until: </strong>
-                          {new Date(booking.end_time).toUTCString()}
-                          <br />
-                          <CashCoin /> <strong>Cost:</strong> €
-                          {booking.total_cost}
-                        </div>
-                      </Col>
-                    </Row>
-                  </Container>
-                ))
-            )}
-          </Col>
-        </Row>
-      </Container>
-      <footer className="footer_dashboard">
-        <Footer />
-      </footer>
+          )}
+        </Col>
+      </Row>
+    </Container>
+    <footer className="footer">
+      
+        <Footer/>
+    </footer>
     </wrapper>
   );
 };

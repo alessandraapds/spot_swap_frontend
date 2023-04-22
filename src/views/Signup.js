@@ -35,8 +35,7 @@ const Signup = () => {
          if(response.ok) {
             setSuccess(true)
             setTimeout(() => {
-               navigate('/login')
-            })
+            }, 3000)
             } else {
                const errorData = await response.json();
                throw new Error(errorData.message)

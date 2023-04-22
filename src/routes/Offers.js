@@ -17,7 +17,7 @@ import Footer from "../components/Footer";
 import Background from "../styles/logo1.png";
 
 const Offers = ({ keyword, myRef }) => {
-  const url = "http://localhost:8001/offers";
+  const url = "https://spot-swap-backend-02.onrender.com/offers";
   const { data, isLoading, error } = useFetch(url);
   const navigate = useNavigate();
 
@@ -28,7 +28,7 @@ const Offers = ({ keyword, myRef }) => {
   };
 
   const showNewSearch = () => {
-    window.location.reload(false);
+    window.location.reload();
   };
 
   return (
@@ -159,9 +159,9 @@ const Offers = ({ keyword, myRef }) => {
             <ExclamationDiamondFill />
             No matches found!
           </h4>
-          <button class="btn btn-warning" onClick={showNewSearch}>
-            <strong>New search</strong>
-          </button>
+
+          <h6>Please performe a new search!</h6>
+
         </div>
       )}
     </div>
