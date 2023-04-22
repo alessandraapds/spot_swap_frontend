@@ -95,7 +95,7 @@ const Bookings = () => {
 
   console.log(bookings);
   return (
-    <wrapper>
+    <div>
       <div>
         <div className="BookingDetails">
           <h1>See your bookings</h1>
@@ -166,7 +166,7 @@ const Bookings = () => {
     <footer className="footer">
       <Footer/>
     </footer>
-    </wrapper>
+    </div>
   );
 };
 
