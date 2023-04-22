@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import Footer from "../components/Footer";
+
 import { CalendarDay, CashCoin } from "react-bootstrap-icons";
+
 
 const Bookings = () => {
   const { id } = useParams();
@@ -39,9 +41,14 @@ const Bookings = () => {
   }, [bookingData, offerData, userId]);
 
   const handleDelete = async (bookingId) => {
-    const booking = bookings.filter((booking) => booking._id === bookingId);
-    console.log(booking, "booking");
+
+    const booking = bookings.filter(
+      (booking) => booking._id === bookingId
+    );
+    console.log(booking, 'booking')
+
     try {
+      
       const response = await fetch(
         `https://spot-swap-backend-02.onrender.com/${bookingId}`,
         {
@@ -54,6 +61,7 @@ const Bookings = () => {
         );
         setBookings(updatedBookings);
 
+
         const id = booking[0].spot_id;
         const headers = { "Content-Type": "application/json" };
         const update = await fetch(
@@ -64,6 +72,7 @@ const Bookings = () => {
             body: JSON.stringify({ isAvailable: true }),
           }
         );
+
       } else {
         throw new Error("Failed to delete booking.");
       }
@@ -83,6 +92,7 @@ const Bookings = () => {
       </div>
     );
   }
+
   console.log(bookings);
   return (
     <wrapper>
@@ -128,10 +138,34 @@ const Bookings = () => {
             </div>
           )}
         </div>
+
       </div>
-      <footer className="footer">
-        <Footer />
-      </footer>
+           <div className="booking-container">
+      {/* <h1>Hello user: {userId}</h1> */}
+      
+      {bookings.length === 0 ? (
+        <p>You have no bookings yet.</p>
+      ) : (
+        <div>
+          {bookings.map((booking) => (
+            <div className="booking" key={booking._id}>
+              <p>Parking name: {offers[booking.spot_id]?.offerName}</p>
+              <p>Address: {offers[booking.spot_id]?.street}</p>
+              <p>City: {offers[booking.spot_id]?.city}</p>
+              <p><CalendarDay /><strong> Start Time: </strong> {new Date(booking.start_time).toUTCString()}</p>
+              <p><CalendarDay /><strong> End Time: </strong> {new Date(booking.end_time).toUTCString()}</p>
+              <p><CashCoin /> Total cost: € : {booking.total_cost}</p>
+              <p>Booking status: {booking.booking_status}</p>
+              <button className="cancel_button" onClick={() => handleDelete(booking._id)}>Cancel</button>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+    </div>
+    <footer className="footer">
+      <Footer/>
+    </footer>
     </wrapper>
   );
 };
