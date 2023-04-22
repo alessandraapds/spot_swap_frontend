@@ -9,7 +9,7 @@ import { Spinner } from "react-bootstrap";
 const NewBooking = () => {
   const { id } = useParams();
   const { data, isLoading, error } = useFetch(
-    `http://localhost:8001/offers/${id}`,
+    `https://spot-swap-backend-02.onrender.com/offers/${id}`,
     { delay: 1000 }
   );
   console.log(id);
@@ -69,17 +69,23 @@ const NewBooking = () => {
     const headers = { "Content-Type": "application/json" };
     // setLoading(true)
     try {
-      const response = await fetch(`http://localhost:8001/booking/newBooking`, {
-        method: "POST",
-        headers,
-        body: JSON.stringify(payload),
-      });
-      if (response.ok) {
-        const update = await fetch(`http://localhost:8001/offers/${id}`, {
-          method: "PUT",
+      const response = await fetch(
+        `https://spot-swap-backend-02.onrender.com/booking/newBooking`,
+        {
+          method: "POST",
           headers,
-          body: JSON.stringify({ isAvailable: false }),
-        });
+          body: JSON.stringify(payload),
+        }
+      );
+      if (response.ok) {
+        const update = await fetch(
+          `https://spot-swap-backend-02.onrender.com/offers/${id}`,
+          {
+            method: "PUT",
+            headers,
+            body: JSON.stringify({ isAvailable: false }),
+          }
+        );
         if (update.ok) {
           setTimeout(() => {}, 3000);
         }
