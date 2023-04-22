@@ -17,7 +17,7 @@ import Footer from "../components/Footer";
 import Background from "../styles/logo1.png";
 
 const Offers = ({ keyword, myRef }) => {
-  const url = "http://localhost:8001/offers";
+  const url = "https://spot-swap-backend-02.onrender.com/offers";
   const { data, isLoading, error } = useFetch(url);
   const navigate = useNavigate();
 
